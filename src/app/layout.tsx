@@ -49,7 +49,7 @@ export default function RootLayout({
               name: "Lubin Digital",
               description:
                 "Professional web design and development for local businesses",
-              telephone: "(530) 213-3189",
+              telephone: "(530) 386-4145",
               email: "westan@lubindigital.com",
               url: "https://lubindigital.com",
               address: {

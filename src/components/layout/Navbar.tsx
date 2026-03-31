@@ -42,7 +42,7 @@ export function Navbar() {
             width={500}
             height={500}
             className={`transition-all duration-300 ${
-              scrolled ? "h-[60px]" : "h-[80px]"
+              scrolled ? "h-[80px]" : "h-[110px]"
             } w-auto`}
             priority
           />

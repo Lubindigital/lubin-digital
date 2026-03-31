@@ -13,7 +13,7 @@ export function Footer() {
               alt="Lubin Digital"
               width={500}
               height={500}
-              className="h-[60px] w-auto brightness-0 invert opacity-85"
+              className="h-[80px] w-auto brightness-0 invert opacity-85"
             />
             <p className="mt-4 text-sm leading-relaxed">
               Professional websites for local businesses. Built with care in

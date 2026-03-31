@@ -1,7 +1,7 @@
 export const CONTACT = {
   email: "westan@lubindigital.com",
-  phone: "(530) 213-3189",
-  phoneHref: "tel:5302133189",
+  phone: "(530) 386-4145",
+  phoneHref: "tel:5303864145",
   location: "Hawaii",
   locationSub: "Serving clients nationwide",
 } as const;
