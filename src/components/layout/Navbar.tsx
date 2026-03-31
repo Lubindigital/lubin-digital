@@ -37,12 +37,13 @@ export function Navbar() {
       <div className="max-w-[1140px] mx-auto px-6 flex items-center justify-between">
         <a href="#" className="block" onClick={(e) => handleLinkClick(e, "#hero")}>
           <Image
-            src="/logo.svg"
+            src="/lubin-digital-logo.svg"
             alt="Lubin Digital"
-            width={140}
-            height={140}
+            width={180}
+            height={50}
+            unoptimized
             className={`transition-all duration-300 ${
-              scrolled ? "h-[90px] -my-5" : "h-[140px] -my-10"
+              scrolled ? "h-[40px]" : "h-[50px]"
             } w-auto`}
             priority
           />

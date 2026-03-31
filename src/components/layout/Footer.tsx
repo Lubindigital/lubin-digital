@@ -9,11 +9,12 @@ export function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src="/logo.svg"
+              src="/lubin-digital-logo.svg"
               alt="Lubin Digital"
-              width={70}
-              height={70}
-              className="h-[70px] w-auto brightness-0 invert opacity-85"
+              width={140}
+              height={40}
+              unoptimized
+              className="h-[40px] w-auto brightness-0 invert opacity-85"
             />
             <p className="mt-4 text-sm leading-relaxed">
               Professional websites for local businesses. Built with care in
