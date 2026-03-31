@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" width="520" height="160">
+  <defs>
+    <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00C9A7"/>
+      <stop offset="100%" stop-color="#0096FF"/>
+    </linearGradient>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0C1B33"/>
+      <stop offset="100%" stop-color="#0D2347"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Icon mark: rounded square badge -->
+  <rect x="0" y="10" width="140" height="140" rx="24" fill="url(#badgeGrad)"/>
+
+  <!-- Bold L letterform in white -->
+  <rect x="36" y="34" width="22" height="80" rx="4" fill="white"/>
+  <rect x="36" y="94" width="68" height="20" rx="4" fill="white"/>
+
+  <!-- Teal wave accent cutting across bottom of icon -->
+  <path d="M0 115 Q17 100 35 112 Q52 124 70 108 Q88 92 105 104 Q122 116 140 100"
+        fill="none" stroke="url(#waveGrad)" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Dot accent top right of badge -->
+  <circle cx="112" cy="38" r="9" fill="url(#waveGrad)"/>
+
+  <!-- Wordmark: LUBIN -->
+  <text
+    x="172"
+    y="87"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-weight="700"
+    font-size="54"
+    letter-spacing="-1"
+    fill="#0C1B33">LUBIN</text>
+
+  <!-- Wordmark: DIGITAL -->
+  <text
+    x="175"
+    y="120"
+    font-family="'Helvetica Neue', Helvetica, Arial, sans-serif"
+    font-weight="300"
+    font-size="22"
+    letter-spacing="8"
+    fill="url(#waveGrad)">DIGITAL</text>
+
+  <!-- Thin separator line between name and tagline -->
+  <line x1="172" y1="96" x2="510" y2="96" stroke="#E8EDF3" stroke-width="1"/>
+</svg>
