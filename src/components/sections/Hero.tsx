@@ -17,9 +17,9 @@ const fadeUp = {
 };
 
 const stats = [
-  { value: "50+", label: "Websites Built" },
   { value: "90+", label: "Avg. PageSpeed" },
   { value: "24hr", label: "Response Time" },
+  { value: "1-2wk", label: "Avg. Launch Time" },
 ];
 
 const pills = [

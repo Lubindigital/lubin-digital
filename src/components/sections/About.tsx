@@ -2,7 +2,7 @@
 
 import { motion } from "motion/react";
 import Image from "next/image";
-import { AnimatedCounter } from "@/components/motion/AnimatedCounter";
+
 
 export function About() {
   return (
@@ -61,15 +61,6 @@ export function About() {
               your site.
             </p>
 
-            {/* Stat */}
-            <div className="mb-8">
-              <div className="text-6xl md:text-7xl font-black tracking-tighter gradient-text leading-none">
-                <AnimatedCounter target={50} suffix="+" />
-              </div>
-              <p className="text-xs font-bold uppercase tracking-[2px] text-text-sec-light mt-2">
-                Happy Clients
-              </p>
-            </div>
 
             <a
               href="#contact"

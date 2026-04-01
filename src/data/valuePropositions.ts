@@ -10,16 +10,7 @@ export interface ValueProp {
 
 export const valuePropositions: ValueProp[] = [
   {
-    label: "01 — Websites Built",
-    title: "Websites That",
-    accentText: "Grow Your Business",
-    description:
-      "Generic websites don't cut it. Every site we build is designed to convert — clear calls-to-action, fast load times, mobile-first design, and SEO structure that puts you in front of the people searching for your services.",
-    stat: "50",
-    statLabel: "Websites Built & Counting",
-  },
-  {
-    label: "02 — Quality Work",
+    label: "01 — Quality Work",
     title: "Agency Quality,",
     accentText: "Honest Pricing",
     description:
@@ -28,7 +19,7 @@ export const valuePropositions: ValueProp[] = [
     statLabel: "Avg. Hours Per Project",
   },
   {
-    label: "03 — Direct Contact",
+    label: "02 — Direct Contact",
     title: "No Middlemen,",
     accentText: "just Us",
     description:
@@ -37,20 +28,11 @@ export const valuePropositions: ValueProp[] = [
     statLabel: "Point of Contact",
   },
   {
-    label: "04 — Built-In SEO",
+    label: "03 — Built-In SEO",
     title: "Supercharged",
     accentText: "by SEO",
     description:
       "We don't just build SEO-friendly sites — we build sites designed to rank. Local search optimization, schema markup, fast load times, and keyword strategy are all built into every project from the start.",
     icon: "shield",
-  },
-  {
-    label: "05 — Ongoing Support",
-    title: "Built-In",
-    accentText: "Peace of Mind",
-    description:
-      "Every website comes with ongoing maintenance, hosting, and support. Free edits, SSL security, backups, and uptime monitoring — so you never have to worry about your site going down or falling behind.",
-    stat: "30",
-    statLabel: "Day Money-Back Guarantee",
   },
 ];
