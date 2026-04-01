@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { DottedSurface } from "@/components/ui/dotted-surface";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -32,10 +33,13 @@ const pills = [
 
 export function Hero() {
   return (
-    <section id="hero" className="relative bg-dark overflow-hidden">
+    <section id="hero" className="relative bg-dark overflow-hidden dark">
+      {/* Animated dotted surface background */}
+      <DottedSurface className="z-[1] opacity-60" />
+
       {/* Subtle gradient orbs */}
-      <div className="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-blue/[0.06] rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-150px] right-[-100px] w-[400px] h-[400px] bg-teal/[0.05] rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-[-200px] left-[-100px] w-[500px] h-[500px] bg-blue/[0.06] rounded-full blur-[120px] pointer-events-none z-[2]" />
+      <div className="absolute bottom-[-150px] right-[-100px] w-[400px] h-[400px] bg-teal/[0.05] rounded-full blur-[100px] pointer-events-none z-[2]" />
 
       <div className="relative z-[3] max-w-[1140px] mx-auto px-6 pt-40 pb-20">
         {/* Tag */}
