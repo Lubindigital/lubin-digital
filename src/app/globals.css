@@ -8,14 +8,23 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
 
-  /* Lubin Digital brand colors */
-  --color-navy: #0A1F3F;
-  --color-navy-light: #0E2A52;
+  /* brilliant.digital-inspired color system */
+  --color-dark: #050f1e;
+  --color-dark-light: #0a1a2f;
+  --color-light: #f4f3ef;
+  --color-off-white: #f9f8f5;
+  --color-text-dark: #050f1e;
+  --color-text-sec-dark: #636378;
+  --color-text-light: #e8e8f0;
+  --color-text-sec-light: #e8e8f08c;
+
+  /* Lubin Digital brand gradient colors */
+  --color-blue: #0875e9;
   --color-teal: #00B4A0;
-  --color-blue: #2E7FE8;
 
   /* shadcn theme tokens */
   --color-sidebar-ring: var(--sidebar-ring);
@@ -105,7 +114,7 @@
 
 /* Gradient text utility */
 .gradient-text {
-  background: linear-gradient(135deg, #00B4A0 0%, #2E7FE8 100%);
+  background: linear-gradient(135deg, #0875e9 0%, #00B4A0 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -113,5 +122,29 @@
 
 /* Gradient background utility */
 .gradient-bg {
-  background: linear-gradient(135deg, #00B4A0 0%, #2E7FE8 100%);
+  background: linear-gradient(135deg, #0875e9 0%, #00B4A0 100%);
+}
+
+/* Accent text — italic serif for headings */
+.accent-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+/* Gradient underline decoration */
+.gradient-underline {
+  position: relative;
+  display: inline-block;
+}
+.gradient-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0.05em;
+  width: 100%;
+  height: 0.35em;
+  background: linear-gradient(135deg, #0875e9 0%, #00B4A0 100%);
+  opacity: 0.3;
+  border-radius: 2px;
+  z-index: -1;
 }

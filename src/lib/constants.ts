@@ -8,9 +8,11 @@ export const CONTACT = {
 
 export const NAV_LINKS = [
   { label: "Services", href: "#services" },
-  { label: "Process", href: "#process" },
-  { label: "Why Us", href: "#why" },
+  { label: "About", href: "#about" },
   { label: "FAQ", href: "#faq" },
 ] as const;
+
+export const CTA_PRIMARY = { label: "Let's Talk", href: "#contact" } as const;
+export const CTA_SECONDARY = { label: "Our Services", href: "#services" } as const;
 
 export const FORMSPREE_ACTION = "https://formspree.io/f/xkoprobn";

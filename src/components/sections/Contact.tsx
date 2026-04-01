@@ -18,7 +18,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white">
+    <section id="contact" className="py-24 bg-dark">
       <div className="max-w-[1140px] mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-16 items-start">
           {/* Contact Info */}
@@ -31,12 +31,13 @@ export function Contact() {
             <span className="inline-block text-xs font-bold uppercase tracking-[3px] gradient-text mb-3.5">
               Let&apos;s Talk
             </span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-navy mb-4 tracking-tight">
-              Ready to Get Started?
+            <h2 className="text-3xl md:text-4xl font-extrabold text-text-light mb-4 tracking-tight">
+              Ready to Get{" "}
+              <span className="accent-text gradient-underline">Started</span>?
             </h2>
-            <p className="text-slate-500 text-base leading-relaxed mb-9">
+            <p className="text-text-sec-light text-base leading-relaxed mb-9">
               Tell us about your business and what you&apos;re looking for.
-              We&apos;ll get back to you with a free, no-obligation quote —
+              We&apos;ll get back to you with a free, no-obligation quote &mdash;
               usually within 24 hours.
             </p>
 
@@ -57,38 +58,36 @@ export function Contact() {
                 {
                   icon: MapPin,
                   label: "Location",
-                  value: `${CONTACT.location}`,
+                  value: CONTACT.location,
                   sub: CONTACT.locationSub,
                 },
               ].map((item, i) => (
                 <FadeUp key={item.label} delay={i * 0.1}>
                   <div className="flex gap-4 items-start">
-                    <div className="w-11 h-11 bg-gradient-to-br from-teal/10 to-blue/10 rounded-lg flex items-center justify-center text-teal flex-shrink-0">
+                    <div className="w-11 h-11 bg-white/[0.05] border border-white/[0.08] rounded-lg flex items-center justify-center text-blue flex-shrink-0">
                       <item.icon className="w-5 h-5" strokeWidth={1.5} />
                     </div>
                     <div>
-                      <strong className="block text-xs uppercase tracking-wider text-slate-400 mb-1">
+                      <strong className="block text-xs uppercase tracking-wider text-text-sec-light mb-1">
                         {item.label}
                       </strong>
                       {item.href ? (
                         <a
                           href={item.href}
-                          className="text-navy font-semibold hover:text-teal transition-colors cursor-pointer"
+                          className="text-text-light font-semibold hover:text-blue transition-colors cursor-pointer"
                         >
                           {item.value}
                         </a>
                       ) : (
-                        <>
-                          <span className="text-slate-600 text-sm leading-relaxed">
-                            {item.value}
-                            {item.sub && (
-                              <>
-                                <br />
-                                {item.sub}
-                              </>
-                            )}
-                          </span>
-                        </>
+                        <span className="text-text-sec-light text-sm leading-relaxed">
+                          {item.value}
+                          {item.sub && (
+                            <>
+                              <br />
+                              {item.sub}
+                            </>
+                          )}
+                        </span>
                       )}
                     </div>
                   </div>
@@ -103,9 +102,9 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-slate-50 border border-slate-100 rounded-2xl p-10 lg:p-9"
+            className="bg-dark-light border border-white/[0.06] rounded-2xl p-8 lg:p-10"
           >
-            <h3 className="text-xl font-bold text-navy mb-7">
+            <h3 className="text-xl font-bold text-text-light mb-7">
               Get Your Free Quote
             </h3>
             <form
@@ -117,7 +116,7 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-xs font-semibold text-slate-600 mb-1.5"
+                    className="block text-xs font-semibold text-text-sec-light mb-1.5"
                   >
                     Name
                   </label>
@@ -127,13 +126,13 @@ export function Contact() {
                     name="name"
                     required
                     placeholder="Your name"
-                    className="w-full px-3.5 py-3 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all"
+                    className="w-full px-3.5 py-3 text-sm border border-white/[0.1] rounded-lg bg-white/[0.03] text-text-light placeholder:text-white/30 focus:outline-none focus:border-blue focus:ring-2 focus:ring-blue/20 transition-all"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="business"
-                    className="block text-xs font-semibold text-slate-600 mb-1.5"
+                    className="block text-xs font-semibold text-text-sec-light mb-1.5"
                   >
                     Business Name
                   </label>
@@ -142,7 +141,7 @@ export function Contact() {
                     id="business"
                     name="business"
                     placeholder="Your business"
-                    className="w-full px-3.5 py-3 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all"
+                    className="w-full px-3.5 py-3 text-sm border border-white/[0.1] rounded-lg bg-white/[0.03] text-text-light placeholder:text-white/30 focus:outline-none focus:border-blue focus:ring-2 focus:ring-blue/20 transition-all"
                   />
                 </div>
               </div>
@@ -151,7 +150,7 @@ export function Contact() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-xs font-semibold text-slate-600 mb-1.5"
+                    className="block text-xs font-semibold text-text-sec-light mb-1.5"
                   >
                     Email
                   </label>
@@ -161,13 +160,13 @@ export function Contact() {
                     name="email"
                     required
                     placeholder="you@email.com"
-                    className="w-full px-3.5 py-3 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all"
+                    className="w-full px-3.5 py-3 text-sm border border-white/[0.1] rounded-lg bg-white/[0.03] text-text-light placeholder:text-white/30 focus:outline-none focus:border-blue focus:ring-2 focus:ring-blue/20 transition-all"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-xs font-semibold text-slate-600 mb-1.5"
+                    className="block text-xs font-semibold text-text-sec-light mb-1.5"
                   >
                     Phone
                   </label>
@@ -176,7 +175,7 @@ export function Contact() {
                     id="phone"
                     name="phone"
                     placeholder="(530) 213-3189"
-                    className="w-full px-3.5 py-3 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all"
+                    className="w-full px-3.5 py-3 text-sm border border-white/[0.1] rounded-lg bg-white/[0.03] text-text-light placeholder:text-white/30 focus:outline-none focus:border-blue focus:ring-2 focus:ring-blue/20 transition-all"
                   />
                 </div>
               </div>
@@ -184,14 +183,14 @@ export function Contact() {
               <div className="mb-4">
                 <label
                   htmlFor="service"
-                  className="block text-xs font-semibold text-slate-600 mb-1.5"
+                  className="block text-xs font-semibold text-text-sec-light mb-1.5"
                 >
                   What do you need?
                 </label>
                 <select
                   id="service"
                   name="service"
-                  className="w-full px-3.5 py-3 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all appearance-none"
+                  className="w-full px-3.5 py-3 text-sm border border-white/[0.1] rounded-lg bg-white/[0.03] text-text-light focus:outline-none focus:border-blue focus:ring-2 focus:ring-blue/20 transition-all appearance-none"
                 >
                   <option value="">Select a service...</option>
                   <option value="new-website">New Website</option>
@@ -205,7 +204,7 @@ export function Contact() {
               <div className="mb-5">
                 <label
                   htmlFor="message"
-                  className="block text-xs font-semibold text-slate-600 mb-1.5"
+                  className="block text-xs font-semibold text-text-sec-light mb-1.5"
                 >
                   Tell us about your project
                 </label>
@@ -214,17 +213,17 @@ export function Contact() {
                   name="message"
                   rows={4}
                   placeholder="What does your business do? Do you have a current website? What are you looking to achieve?"
-                  className="w-full px-3.5 py-3 text-sm border border-slate-200 rounded-lg bg-white text-slate-800 focus:outline-none focus:border-teal focus:ring-2 focus:ring-teal/10 transition-all resize-y min-h-[100px]"
+                  className="w-full px-3.5 py-3 text-sm border border-white/[0.1] rounded-lg bg-white/[0.03] text-text-light placeholder:text-white/30 focus:outline-none focus:border-blue focus:ring-2 focus:ring-blue/20 transition-all resize-y min-h-[100px]"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full gradient-bg text-white py-3.5 rounded-lg text-sm font-semibold hover:-translate-y-0.5 hover:shadow-[0_8px_25px_rgba(46,127,232,0.3)] transition-all cursor-pointer"
+                className="w-full gradient-bg text-white py-3.5 rounded-lg text-sm font-semibold hover:opacity-90 hover:shadow-[0_8px_25px_rgba(8,117,233,0.3)] transition-all cursor-pointer"
               >
                 Send Request
               </button>
-              <p className="text-center text-xs text-slate-400 mt-3.5">
+              <p className="text-center text-xs text-text-sec-light mt-3.5">
                 No spam, no pressure. We&apos;ll respond within 24 hours.
               </p>
             </form>
