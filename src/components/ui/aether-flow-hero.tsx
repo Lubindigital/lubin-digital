@@ -109,7 +109,9 @@ const AetherFlowCanvas: React.FC<AetherFlowCanvasProps> = ({
 
     const resizeCanvas = () => {
       canvas!.width = window.innerWidth;
-      canvas!.height = window.innerHeight;
+      // Use parent height if taller than viewport (min-h-screen sections)
+      const parentHeight = canvas!.parentElement?.offsetHeight ?? window.innerHeight;
+      canvas!.height = Math.max(window.innerHeight, parentHeight);
       init();
     };
     window.addEventListener("resize", resizeCanvas);

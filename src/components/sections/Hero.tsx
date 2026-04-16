@@ -33,11 +33,11 @@ const pills = [
 
 export function Hero() {
   return (
-    <section id="hero" className="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden">
       {/* Aether Flow particle canvas background */}
       <AetherFlowCanvas className="absolute top-0 left-0 w-full h-full" />
 
-      <div className="relative z-10 max-w-[1140px] w-full mx-auto px-6">
+      <div className="relative z-10 max-w-[1140px] w-full mx-auto px-6 pt-28 pb-16 md:pt-32 md:pb-20">
         {/* Tag */}
         <motion.p
           variants={fadeUp}
