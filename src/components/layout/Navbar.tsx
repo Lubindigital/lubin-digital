@@ -81,9 +81,9 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Hamburger */}
+        {/* Mobile Hamburger — z-[60] so it stays above the sidebar (z-50) */}
         <button
-          className="md:hidden flex flex-col gap-[5px] p-1.5 cursor-pointer"
+          className="md:hidden relative z-[60] flex flex-col gap-[5px] p-1.5 cursor-pointer"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >

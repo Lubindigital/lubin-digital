@@ -31,6 +31,7 @@ const AetherFlowCanvas: React.FC<AetherFlowCanvasProps> = ({
     let animationFrameId: number;
     let particles: Particle[] = [];
     const mouse = { x: null as number | null, y: null as number | null, radius: 200 };
+    const isMobile = window.innerWidth < 768;
 
     class Particle {
       x: number;
@@ -92,13 +93,16 @@ const AetherFlowCanvas: React.FC<AetherFlowCanvasProps> = ({
 
     function init() {
       particles = [];
-      const numberOfParticles = (canvas!.height * canvas!.width) / 9000;
+      // Fewer particles on mobile for performance, also reduce connection threshold
+      const divisor = isMobile ? 18000 : 9000;
+      const numberOfParticles = (canvas!.height * canvas!.width) / divisor;
       for (let i = 0; i < numberOfParticles; i++) {
         const size = Math.random() * 2 + 1;
         const x = Math.random() * (canvas!.width - size * 4) + size * 2;
         const y = Math.random() * (canvas!.height - size * 4) + size * 2;
-        const directionX = Math.random() * 0.4 - 0.2;
-        const directionY = Math.random() * 0.4 - 0.2;
+        const speed = isMobile ? 0.15 : 0.2;
+        const directionX = Math.random() * (speed * 2) - speed;
+        const directionY = Math.random() * (speed * 2) - speed;
         particles.push(new Particle(x, y, directionX, directionY, size, particleColor));
       }
     }
@@ -112,13 +116,17 @@ const AetherFlowCanvas: React.FC<AetherFlowCanvasProps> = ({
     resizeCanvas();
 
     const connect = () => {
+      const connectionThreshold = isMobile
+        ? (canvas!.width / 10) * (canvas!.height / 10)
+        : (canvas!.width / 7) * (canvas!.height / 7);
+
       for (let a = 0; a < particles.length; a++) {
         for (let b = a; b < particles.length; b++) {
           const distance =
             (particles[a].x - particles[b].x) * (particles[a].x - particles[b].x) +
             (particles[a].y - particles[b].y) * (particles[a].y - particles[b].y);
 
-          if (distance < (canvas!.width / 7) * (canvas!.height / 7)) {
+          if (distance < connectionThreshold) {
             const opacityValue = 1 - distance / 20000;
 
             if (mouse.x !== null && mouse.y !== null) {
@@ -166,8 +174,11 @@ const AetherFlowCanvas: React.FC<AetherFlowCanvasProps> = ({
       mouse.y = null;
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseout", handleMouseOut);
+    // Only attach mouse interaction on non-touch devices to avoid sporadic behavior
+    if (!isMobile) {
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("mouseout", handleMouseOut);
+    }
 
     init();
     animate();
