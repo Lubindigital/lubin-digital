@@ -113,8 +113,11 @@ export function Portfolio() {
         {rest.length > 0 && (
           <div className="columns-1 md:columns-2 gap-6 space-y-6">
             {rest.map((item, i) => (
-              <motion.div
+              <motion.a
                 key={item.name}
+                href={item.url || "#"}
+                target={item.url ? "_blank" : undefined}
+                rel={item.url ? "noopener noreferrer" : undefined}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
@@ -123,7 +126,7 @@ export function Portfolio() {
                   duration: 0.6,
                   ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
                 }}
-                className="break-inside-avoid group relative overflow-hidden rounded-xl cursor-pointer"
+                className="break-inside-avoid group relative overflow-hidden rounded-xl cursor-pointer block"
               >
                 <Image
                   src={item.image}
@@ -141,7 +144,7 @@ export function Portfolio() {
                     {item.name}
                   </h3>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         )}
