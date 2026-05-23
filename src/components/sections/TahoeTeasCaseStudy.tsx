@@ -6,7 +6,7 @@ import { motion } from "motion/react";
 import {
   Mail,
   FileText,
-  Instagram,
+  Image as ImageIcon,
   MessageSquare,
   Sparkles,
   Check,
@@ -32,7 +32,7 @@ const meta = [
 const channels = [
   { icon: Mail, name: "Email", note: "Flows & broadcasts" },
   { icon: FileText, name: "Blog", note: "SEO articles" },
-  { icon: Instagram, name: "Instagram", note: "Captions & carousels" },
+  { icon: ImageIcon, name: "Instagram", note: "Captions & carousels" },
   { icon: MessageSquare, name: "SMS", note: "Short, timely" },
 ];
 
