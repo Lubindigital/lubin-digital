@@ -19,8 +19,8 @@ export function About() {
           >
             <div className="relative rounded-xl overflow-hidden">
               <Image
-                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=700&h=500&fit=crop&q=80"
-                alt="Hawaiian coastline"
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=700&h=500&fit=crop&q=80"
+                alt="Abstract network — global, connected, intelligent"
                 width={700}
                 height={500}
                 className="w-full h-auto object-cover"
@@ -45,20 +45,22 @@ export function About() {
               About Us
             </span>
             <h2 className="text-3xl md:text-4xl lg:text-[2.75rem] font-extrabold text-text-light leading-tight tracking-tight mb-5">
-              A small agency,
+              A modern practice,
               <br />
-              <span className="accent-text gradient-underline">big impact</span>
+              <span className="accent-text gradient-underline">built for AI</span>
             </h2>
             <p className="text-text-sec-light text-base leading-[1.75] mb-4">
-              We approach every project with genuine care and respect. Your
-              success is our success &mdash; that&apos;s not a tagline, it&apos;s how we
-              operate. Based in Hawai&apos;i, serving businesses nationwide.
+              Lubin Digital is an independent web design and AI solutions
+              practice. We design and build modern websites, then go further
+              &mdash; engineering the custom AI systems that run behind them.
+              Strategy, design, and code under one roof. Remote-first, working
+              with clients nationwide.
             </p>
             <p className="text-text-sec-light text-base leading-[1.75] mb-8">
-              We don&apos;t upsell features you don&apos;t need. You get a clean, fast,
-              effective website &mdash; nothing more, nothing less. No account
-              managers or middlemen. You work directly with the person building
-              your site.
+              We don&apos;t upsell features you don&apos;t need, and we don&apos;t hide
+              behind buzzwords. You work directly with the person designing and
+              building your project &mdash; no account managers, no middlemen.
+              Software that ships, and earns its keep.
             </p>
 
 

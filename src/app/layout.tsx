@@ -17,23 +17,25 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Lubin Digital | Professional Websites for Local Businesses — Hawaii & Nationwide",
+  title: "Lubin Digital | AI-Driven Web Design & Digital Solutions",
   description:
-    "Lubin Digital builds fast, modern, SEO-optimized websites for local businesses. Based in Hawaii, serving nationwide. Web design, SEO, hosting & maintenance. Contact us for a free quote.",
+    "Lubin Digital is an AI-driven web design and solutions practice. We build fast, modern websites and custom AI systems — content automation, marketing systems, and integrations — for growing businesses nationwide.",
   keywords: [
-    "web design Hawaii",
-    "website for small business",
-    "local business website",
-    "SEO Hawaii",
-    "web developer Oahu",
-    "affordable website design",
+    "AI web design",
+    "AI solutions",
+    "custom AI development",
+    "content automation",
+    "marketing automation",
+    "Next.js development",
+    "ecommerce AI",
+    "web design and development",
   ],
   robots: { index: true, follow: true },
   alternates: { canonical: "https://lubindigital.com/" },
   openGraph: {
-    title: "Lubin Digital | Websites for Local Businesses",
+    title: "Lubin Digital | AI-Driven Web Design & Solutions",
     description:
-      "Professional websites built to grow your business. Based in Hawaii, serving nationwide.",
+      "Modern websites and custom AI systems, built by one partner from design to deployment. Working with clients nationwide.",
     type: "website",
     locale: "en_US",
     url: "https://lubindigital.com",
@@ -56,22 +58,21 @@ export default function RootLayout({
               "@type": "ProfessionalService",
               name: "Lubin Digital",
               description:
-                "Professional web design and development for local businesses",
+                "AI-driven web design and digital solutions — modern websites, custom AI systems, and content & marketing automation",
               telephone: "(530) 386-4145",
               email: "westan@lubindigital.com",
               url: "https://lubindigital.com",
               address: {
                 "@type": "PostalAddress",
-                addressRegion: "HI",
                 addressCountry: "US",
               },
-              areaServed: ["Hawaii", "United States"],
+              areaServed: "United States",
               priceRange: "$$",
               serviceType: [
-                "Web Design",
+                "AI-Driven Web Design",
+                "Custom AI Solutions",
+                "Content & Marketing Automation",
                 "Web Development",
-                "SEO",
-                "Website Maintenance",
               ],
             }),
           }}

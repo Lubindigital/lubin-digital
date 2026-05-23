@@ -36,9 +36,9 @@ export function Contact() {
               <span className="accent-text gradient-underline">Started</span>?
             </h2>
             <p className="text-text-sec-light text-base leading-relaxed mb-9">
-              Tell us about your business and what you&apos;re looking for.
-              We&apos;ll get back to you with a free, no-obligation quote &mdash;
-              usually within 24 hours.
+              Tell us about your project &mdash; a new website, an AI system, or
+              both. We&apos;ll get back to you with honest, no-pressure thoughts on
+              how to build it, usually within 24 hours.
             </p>
 
             <div className="flex flex-col gap-6">
@@ -105,7 +105,7 @@ export function Contact() {
             className="bg-dark-light border border-white/[0.06] rounded-2xl p-8 lg:p-10"
           >
             <h3 className="text-xl font-bold text-text-light mb-7">
-              Get Your Free Quote
+              Tell Us About Your Project
             </h3>
             <form
               action={FORMSPREE_ACTION}
@@ -194,9 +194,9 @@ export function Contact() {
                 >
                   <option value="">Select a service...</option>
                   <option value="new-website">New Website</option>
-                  <option value="redesign">Website Redesign</option>
-                  <option value="seo">SEO Services</option>
-                  <option value="maintenance">Hosting &amp; Maintenance</option>
+                  <option value="ai-solution">AI Solution / Automation</option>
+                  <option value="ecommerce">Ecommerce Build</option>
+                  <option value="add-ai">Add AI to Existing Site</option>
                   <option value="other">Other / Not Sure</option>
                 </select>
               </div>
@@ -212,7 +212,7 @@ export function Contact() {
                   id="message"
                   name="message"
                   rows={4}
-                  placeholder="What does your business do? Do you have a current website? What are you looking to achieve?"
+                  placeholder="What does your business do? Do you have a current site or store? Are you looking to build something new, automate work with AI, or both?"
                   className="w-full px-3.5 py-3 text-sm border border-white/[0.1] rounded-lg bg-white/[0.03] text-text-light placeholder:text-white/30 focus:outline-none focus:border-blue focus:ring-2 focus:ring-blue/20 transition-all resize-y min-h-[100px]"
                 />
               </div>

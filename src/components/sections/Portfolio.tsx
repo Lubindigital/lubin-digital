@@ -1,12 +1,29 @@
 "use client";
 
+import type { ElementType } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "motion/react";
 import { portfolioItems } from "@/data/portfolio";
+
+const MotionLink = motion.create(Link);
 
 export function Portfolio() {
   const featured = portfolioItems.find((item) => item.featured);
   const rest = portfolioItems.filter((item) => !item.featured);
+
+  // Featured card: internal case studies route client-side via next/link;
+  // external projects open the live site in a new tab.
+  const featuredIsInternal = Boolean(featured?.caseStudyPath);
+  const featuredHref = featured?.caseStudyPath ?? featured?.url ?? "#";
+  const featuredLabel =
+    featured?.displayUrl ??
+    (featured?.url ? featured.url.replace(/^https?:\/\//, "").replace(/\/$/, "") : "");
+  const featuredCta = featured?.ctaLabel ?? "Visit Live Site";
+  const FeaturedWrapper = (featuredIsInternal ? MotionLink : motion.a) as ElementType;
+  const featuredLinkProps: Record<string, string> = featuredIsInternal
+    ? { href: featuredHref }
+    : { href: featuredHref, target: "_blank", rel: "noopener noreferrer" };
 
   return (
     <section id="portfolio" className="bg-light py-24">
@@ -34,10 +51,8 @@ export function Portfolio() {
 
         {/* Featured Project */}
         {featured && (
-          <motion.a
-            href={featured.url}
-            target="_blank"
-            rel="noopener noreferrer"
+          <FeaturedWrapper
+            {...featuredLinkProps}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.15 }}
@@ -56,7 +71,7 @@ export function Portfolio() {
               </div>
               <div className="flex-1 flex justify-center">
                 <span className="text-[0.65rem] text-text-sec-light/60 bg-white/[0.06] px-4 py-1 rounded-md font-mono">
-                  reformnv.org
+                  {featuredLabel}
                 </span>
               </div>
             </div>
@@ -89,7 +104,7 @@ export function Portfolio() {
                   {featured.description}
                 </p>
                 <span className="inline-flex items-center gap-2 text-sm font-medium text-text-light border border-white/20 px-4 py-2 rounded-lg group-hover:border-white/40 group-hover:bg-white/5 transition-all">
-                  Visit Live Site
+                  {featuredCta}
                   <svg
                     className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1"
                     fill="none"
@@ -97,16 +112,24 @@ export function Portfolio() {
                     stroke="currentColor"
                     strokeWidth={2}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                    />
+                    {featuredIsInternal ? (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                      />
+                    ) : (
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                      />
+                    )}
                   </svg>
                 </span>
               </div>
             </div>
-          </motion.a>
+          </FeaturedWrapper>
         )}
 
         {/* Masonry Grid — Other Projects */}

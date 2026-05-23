@@ -18,17 +18,17 @@ const fadeUp = {
 
 const stats = [
   { value: "90+", label: "Avg. PageSpeed" },
-  { value: "24hr", label: "Response Time" },
-  { value: "1-2wk", label: "Avg. Launch Time" },
+  { value: "AI-Native", label: "Builds, Not Bolt-Ons" },
+  { value: "End-to-End", label: "Design + Engineering" },
 ];
 
 const pills = [
-  "Website Design",
-  "SEO",
-  "Hosting",
-  "Redesigns",
-  "Local SEO",
-  "Results-Driven",
+  "AI Web Design",
+  "Custom AI Solutions",
+  "Content Automation",
+  "Marketing Systems",
+  "Next.js Development",
+  "Ecommerce",
 ];
 
 export function Hero() {
@@ -46,7 +46,7 @@ export function Hero() {
           custom={0}
           className="text-xs font-medium uppercase tracking-[3px] text-gray-400 mb-6"
         >
-          Web Design &amp; Digital Agency &mdash; Hawai&apos;i
+          AI-Driven Web Design &amp; Solutions
         </motion.p>
 
         {/* Headline */}
@@ -57,9 +57,9 @@ export function Hero() {
           custom={1}
           className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold leading-[1.1] tracking-tight max-w-[800px] mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400"
         >
-          Rooted in Aloha,
+          Web design meets
           <br />
-          Driven by Results
+          real AI solutions
         </motion.h1>
 
         {/* Subtitle */}
@@ -70,9 +70,9 @@ export function Hero() {
           custom={2}
           className="text-gray-400 text-base md:text-lg leading-[1.75] max-w-[520px] mb-10"
         >
-          We build fast, modern websites that bring local businesses online
-          &mdash; and bring customers to your door. Every day without a website
-          is a day you&apos;re invisible to potential customers.
+          We design and build fast, modern websites &mdash; then take them
+          further with custom AI systems that automate content, marketing, and
+          operations. Design and engineering, under one roof.
         </motion.p>
 
         {/* CTA Buttons */}

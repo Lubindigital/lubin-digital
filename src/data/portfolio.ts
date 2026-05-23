@@ -4,11 +4,29 @@ export interface PortfolioItem {
   description: string;
   image: string;
   url?: string;
+  /** Internal case study route (e.g. "/work/tahoe-teas"). Takes precedence over `url`. */
+  caseStudyPath?: string;
+  /** Label shown in the featured browser-chrome bar. Defaults to the host of `url`. */
+  displayUrl?: string;
+  /** CTA label on the featured card. Defaults to "Visit Live Site". */
+  ctaLabel?: string;
   tall?: boolean;
   featured?: boolean;
 }
 
 export const portfolioItems: PortfolioItem[] = [
+  {
+    name: "Tahoe Teas",
+    category: "AI Systems for Ecommerce",
+    description:
+      "AI-powered email & content systems for a Lake Tahoe ecommerce tea brand. One source idea becomes on-brand email, blog, Instagram, and SMS — drafted in their voice, approved by a human, and published automatically. Integrated with Shopify.",
+    image: "/portfolio/tahoe-teas.jpg",
+    caseStudyPath: "/work/tahoe-teas",
+    displayUrl: "Case Study",
+    ctaLabel: "View Case Study",
+    tall: true,
+    featured: true,
+  },
   {
     name: "ReForm Health Alliance",
     category: "Healthcare Coalition",
@@ -16,7 +34,6 @@ export const portfolioItems: PortfolioItem[] = [
     image: "/portfolio/reformnv.png",
     url: "https://reformnv.org",
     tall: true,
-    featured: true,
   },
   {
     name: "Avergent",

@@ -5,33 +5,33 @@ export interface FaqItem {
 
 export const faqItems: FaqItem[] = [
   {
-    question: "How much does a website cost?",
+    question: "What does an AI-driven web practice actually do?",
     answer:
-      "Every project is different, so we provide custom quotes based on your needs. Reach out for a free consultation and we'll give you a clear, honest price — no hidden fees.",
+      "Two things, often together. First, we design and build modern websites — fast, polished, and conversion-focused. Then we go further: custom AI systems that automate the work behind your site, from content and marketing to internal tools. You get the front end and the intelligence running behind it, from one partner.",
   },
   {
-    question: "How long does it take to build a website?",
+    question: "Can you add AI to my existing website or store?",
     answer:
-      "Most websites launch within 1-2 weeks from the time we have all your information. Larger projects may take a bit longer, but we'll always give you a clear timeline upfront.",
+      "Yes. You don't need to rebuild from scratch. We integrate with what you already run — Shopify, your CMS, your data — and layer in the automation or AI features that move the needle, whether that's content generation, smarter email, or a custom assistant.",
   },
   {
-    question: "Do I need to provide content and images?",
+    question: "What kinds of AI solutions do you build?",
     answer:
-      "It helps, but it's not required. We can write professional copy for your business and source high-quality images. Just tell us about your business and we'll handle the rest.",
+      "Content and marketing automation (one source published to email, blog, social, and SMS), behavior-triggered email flows, internal tools that cut manual work, chat and assistants, and model integrations wired into your existing platforms. If it's repetitive and rules-based, it's a candidate for automation.",
   },
   {
-    question: "Will my website work on phones?",
+    question: "Do you still build regular websites, or only AI projects?",
     answer:
-      "Absolutely. Every website we build is mobile-first — meaning it's designed for phones and tablets first, then scales up beautifully to desktop. Over 60% of web traffic is mobile, so this is non-negotiable for us.",
+      "Both. Plenty of clients just want a beautiful, fast, well-built website — and that's the foundation of everything we do. AI is an option we layer on when it earns its place, not a requirement.",
   },
   {
-    question: "What's included in monthly maintenance?",
+    question: "How long does a project take?",
     answer:
-      "Hosting, SSL security, content updates (text, images, hours changes), uptime monitoring, performance optimization, and ongoing SEO improvements. Think of us as your website team on retainer.",
+      "A focused website typically launches in 1–3 weeks once we have your information. Custom AI systems vary with scope — we'll scope it clearly and give you a realistic timeline and milestones upfront, so there are no surprises.",
   },
   {
-    question: "Can you help me show up on Google?",
+    question: "Do you work with ecommerce and Shopify?",
     answer:
-      "Yes — SEO is built into every site we create. We optimize for local search so that when someone Googles your type of business in your area, you show up. We also help set up and optimize your Google Business Profile.",
+      "Yes. We recently built an AI email and content system for Tahoe Teas, a Lake Tahoe ecommerce brand — automated, on-brand campaigns across email, blog, social, and SMS, integrated directly with Shopify. See the Tahoe Teas case study for the full story.",
   },
 ];

@@ -5,23 +5,23 @@ export interface Service {
 
 export const services: Service[] = [
   {
-    title: "Business Websites",
+    title: "AI-Driven Web Design",
     description:
-      "Custom-built, mobile-responsive websites designed to convert visitors into customers. Every site is built from scratch — no templates, no shortcuts. Fast load times, clean design, and SEO baked in from day one.",
+      "Fast, modern, conversion-focused websites — designed and built from scratch on a current stack, with AI woven into the workflow from first draft to launch. No templates, no page-builder bloat. SEO and performance baked in.",
   },
   {
-    title: "Online Presence & SEO",
+    title: "Custom AI Solutions",
     description:
-      "Get found on Google when customers search for your services. We build local SEO into every site, optimize your Google Business Profile, and structure your content to rank — so your phone actually rings.",
+      "Bespoke AI systems that fit your business: content generation, intelligent automation, internal tools, chat and assistants, and model integrations wired into the platforms you already use — Shopify, your CMS, your data.",
   },
   {
-    title: "Website Support & Hosting",
+    title: "Content & Marketing Automation",
     description:
-      "We keep your site running, secure, and up to date. Reliable hosting, SSL certificates, monthly content updates, and uptime monitoring — all included. No technical headaches, ever.",
+      "Turn one idea into email, blog, social, and SMS — on-brand and on-schedule. We build AI content engines that draft in your voice, keep a human in the loop for approvals, and publish across every channel automatically.",
   },
   {
-    title: "Website Redesigns",
+    title: "Web Development & Integrations",
     description:
-      "Already have a site that looks outdated or isn't generating leads? We'll rebuild it into something modern, fast, and effective — while preserving your existing SEO equity and improving your search rankings.",
+      "Full-stack builds, API and ecommerce integrations, deployment, and ongoing support. Whether it's a new product or adding intelligence to an existing site, we ship production-grade software you can rely on.",
   },
 ];

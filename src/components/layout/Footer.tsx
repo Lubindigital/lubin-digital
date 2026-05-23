@@ -7,15 +7,15 @@ export function Footer() {
       <div className="border-t border-white/[0.06]">
         <div className="max-w-[1140px] mx-auto px-6 py-16 text-center">
           <span className="inline-block text-xs font-bold uppercase tracking-[3px] gradient-text mb-4">
-            Start Your Journey
+            Let&apos;s Build
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-text-light leading-tight tracking-tight mb-6">
-            Don&apos;t Let Customers{" "}
-            <span className="accent-text gradient-underline">Pass You By</span>
+            Let&apos;s build something{" "}
+            <span className="accent-text gradient-underline">intelligent</span>
           </h2>
           <p className="text-text-sec-light text-base max-w-[500px] mx-auto mb-8 leading-relaxed">
-            Every day without a website is a day you&apos;re invisible to potential
-            customers searching online. Get your free quote today.
+            Whether you need a new website, a custom AI system, or both &mdash;
+            tell us what you&apos;re working on and we&apos;ll help you build it right.
           </p>
           <a
             href={`mailto:${CONTACT.email}`}
