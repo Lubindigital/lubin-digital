@@ -30,8 +30,8 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-dark/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)] py-0"
-          : "bg-dark/80 backdrop-blur-sm py-0"
+          ? "bg-dark/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)] py-2.5"
+          : "bg-dark/80 backdrop-blur-sm py-4"
       }`}
     >
       <div className="max-w-[1140px] mx-auto px-6 flex items-center justify-between">
@@ -42,7 +42,7 @@ export function Navbar() {
             width={1375}
             height={600}
             className={`transition-all duration-300 brightness-0 invert ${
-              scrolled ? "h-[42px]" : "h-[52px]"
+              scrolled ? "h-[28px]" : "h-[34px]"
             } w-auto`}
             priority
           />

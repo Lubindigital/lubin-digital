@@ -38,28 +38,17 @@ export function Hero() {
       <AetherFlowCanvas className="absolute top-0 left-0 w-full h-full" />
 
       <div className="relative z-10 max-w-[1140px] w-full mx-auto px-6 pt-28 pb-16 md:pt-32 md:pb-20">
-        {/* Tag */}
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0}
-          className="text-xs font-medium uppercase tracking-[3px] text-gray-400 mb-6"
-        >
-          AI-Driven Web Design &amp; Solutions
-        </motion.p>
-
         {/* Headline */}
         <motion.h1
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          custom={1}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold leading-[1.1] tracking-tight max-w-[800px] mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400"
+          custom={0}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold leading-[1.1] tracking-tight max-w-[820px] mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400"
         >
-          Web design meets
+          AI-Driven Web Design
           <br />
-          real AI solutions
+          and Solutions
         </motion.h1>
 
         {/* Subtitle */}
@@ -67,7 +56,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          custom={2}
+          custom={1}
           className="text-gray-400 text-base md:text-lg leading-[1.75] max-w-[520px] mb-10"
         >
           We design and build fast, modern websites &mdash; then take them
@@ -80,7 +69,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          custom={3}
+          custom={2}
           className="flex flex-wrap gap-4 mb-16"
         >
           <a
@@ -102,7 +91,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          custom={4}
+          custom={3}
           className="flex flex-wrap gap-12 mb-10"
         >
           {stats.map((stat) => (
@@ -122,7 +111,7 @@ export function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="visible"
-          custom={5}
+          custom={4}
           className="border-t border-white/[0.08] pt-8"
         >
           <div className="flex flex-wrap gap-3">
