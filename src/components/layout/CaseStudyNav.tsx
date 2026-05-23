@@ -12,11 +12,11 @@ export function CaseStudyNav() {
       <div className="max-w-[1140px] mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="block py-2" aria-label="Lubin Digital — home">
           <Image
-            src="/lubin-digital-logo.png"
+            src="/lubin-digital-logo-wave.png"
             alt="Lubin Digital"
-            width={500}
-            height={500}
-            className="h-[64px] w-auto brightness-0 invert"
+            width={1375}
+            height={600}
+            className="h-[40px] w-auto brightness-0 invert"
             priority
           />
         </Link>
