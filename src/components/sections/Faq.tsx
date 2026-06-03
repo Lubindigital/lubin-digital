@@ -1,69 +1,94 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "motion/react";
-import { ChevronDown } from "lucide-react";
+import { motion } from "motion/react";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 import { faqItems } from "@/data/faq";
-import { SectionHeader } from "@/components/shared/SectionHeader";
-import { FadeUp } from "@/components/motion/FadeUp";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Faq() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  // Structured data — built from the same source as the visible Q&As,
+  // so the two can never drift apart.
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
 
   return (
-    <section id="faq" className="py-24 bg-light">
-      <div className="max-w-[1140px] mx-auto px-6">
-        <SectionHeader
-          tag="FAQ"
-          title="Common"
-          accentText="Questions"
-          centered
-        />
+    <section id="faq" className="bg-canvas py-24 md:py-32">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
 
-        <div className="max-w-[720px] mx-auto">
-          {faqItems.map((item, i) => (
-            <FadeUp key={item.question} delay={i * 0.05}>
-              <div className="border-b border-text-dark/[0.08]">
-                <button
-                  onClick={() =>
-                    setActiveIndex(activeIndex === i ? null : i)
-                  }
-                  className="w-full flex items-center justify-between py-5 text-left cursor-pointer group"
-                >
-                  <span className="text-base font-semibold text-text-dark pr-4 group-hover:text-blue transition-colors">
+      <div className="mx-auto max-w-[760px] px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease }}
+          className="mb-10 md:mb-12"
+        >
+          <p className="eyebrow text-accent mb-4">Before you ask</p>
+          <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] mb-4">
+            The questions I hear most
+          </h2>
+          <p className="text-ink-soft text-lg leading-[1.6] max-w-[60ch]">
+            Straight answers on timelines, cost, ownership, and how the AI part
+            actually works. Still wondering about something?{" "}
+            <a
+              href="#contact"
+              className="link-underline font-medium text-accent"
+            >
+              Just ask me directly
+            </a>
+            .
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.6, ease }}
+        >
+          <Accordion
+            defaultValue={["faq-0"]}
+            className="border-t border-hairline"
+          >
+            {faqItems.map((item, i) => (
+              <AccordionItem
+                key={item.question}
+                value={`faq-${i}`}
+                className="border-b border-hairline"
+              >
+                <AccordionTrigger className="gap-6 rounded-none border-0 py-6 no-underline hover:no-underline focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:[&_>span]:underline focus-visible:[&_>span]:underline-offset-4 **:data-[slot=accordion-trigger-icon]:mt-1 **:data-[slot=accordion-trigger-icon]:text-ink-soft group-aria-expanded/accordion-trigger:**:data-[slot=accordion-trigger-icon]:text-accent">
+                  <span className="font-display text-xl md:text-2xl leading-snug text-ink">
                     {item.question}
                   </span>
-                  <motion.div
-                    animate={{ rotate: activeIndex === i ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <ChevronDown
-                      className={`w-5 h-5 flex-shrink-0 transition-colors ${
-                        activeIndex === i ? "text-blue" : "text-text-sec-dark"
-                      }`}
-                    />
-                  </motion.div>
-                </button>
-
-                <AnimatePresence initial={false}>
-                  {activeIndex === i && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <p className="text-text-sec-dark text-sm leading-relaxed pb-5">
-                        {item.answer}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            </FadeUp>
-          ))}
-        </div>
+                </AccordionTrigger>
+                <AccordionContent className="pb-6">
+                  <p className="max-w-[62ch] text-base leading-[1.7] text-ink-soft">
+                    {item.answer}
+                  </p>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </motion.div>
       </div>
     </section>
   );

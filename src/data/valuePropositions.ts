@@ -1,38 +1,39 @@
-export interface ValueProp {
-  label: string;
-  title: string;
-  accentText: string;
-  description: string;
-  stat?: string;
-  statLabel?: string;
-  icon?: "shield";
+export interface Differentiator {
+  /** Step number, e.g. "01" */
+  number: string;
+  /** Short mono kicker label */
+  kicker: string;
+  /** Display-serif claim — keep short, one line where possible */
+  claim: string;
+  /** One honest sentence backing the claim */
+  detail: string;
+  /** Small supporting micro-proof line */
+  proof: string;
 }
 
-export const valuePropositions: ValueProp[] = [
+export const differentiators: Differentiator[] = [
   {
-    label: "01 — AI-Native",
-    title: "Built with AI,",
-    accentText: "not bolted on",
-    description:
-      "AI isn't a feature we tack on at the end — it's part of how we design and build, from the first draft to the shipped system. That means smarter workflows, faster iteration, and software that does real work for you, not just looks good.",
-    stat: "End",
-    statLabel: "to End Delivery",
+    number: "01",
+    kicker: "Speed",
+    claim: "Live in two to three weeks.",
+    detail:
+      "We scope tight and build focused sites — no months-long discovery, no committee. You get a real, working site while the idea is still fresh.",
+    proof: "Typical turnaround: 2–3 weeks from kickoff to launch.",
   },
   {
-    label: "02 — Direct Contact",
-    title: "Strategy, design,",
-    accentText: "and engineering",
-    description:
-      "You won't get passed between account managers, designers, and developers. You work directly with the person who designs and builds your site and systems — one partner from concept to deployed software. Real communication, real accountability.",
-    stat: "1",
-    statLabel: "Point of Contact",
+    number: "02",
+    kicker: "Craft",
+    claim: "Hand-built, line by line.",
+    detail:
+      "Nothing here is dragged out of a template and recolored. Every page is written and built from scratch — the site you're reading right now is the sample.",
+    proof: "This page is the portfolio. Look at how it moves.",
   },
   {
-    label: "03 — Built to Perform",
-    title: "Fast, measurable,",
-    accentText: "production-grade",
-    description:
-      "We build on a modern stack — Next.js, Vercel, and battle-tested AI infrastructure — with performance, SEO, and reliability designed in from the start. Not prototypes. Software built to run in production and earn its keep.",
-    icon: "shield",
+    number: "03",
+    kicker: "Partnership",
+    claim: "You talk to the person who builds it.",
+    detail:
+      "No account managers, no hand-offs, no game of telephone. The same person designs your site and writes the code — so feedback lands the first time.",
+    proof: "One partner, start to finish. That's the whole team.",
   },
 ];

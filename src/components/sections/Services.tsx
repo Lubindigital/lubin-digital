@@ -1,41 +1,76 @@
 "use client";
 
 import { motion } from "motion/react";
-import { services } from "@/data/services";
-import { SectionHeader } from "@/components/shared/SectionHeader";
+import { practices } from "@/data/services";
+
+const ease = [0.22, 1, 0.36, 1] as const;
 
 export function Services() {
   return (
-    <section id="services" className="py-24 bg-off-white">
-      <div className="max-w-[1140px] mx-auto px-6">
-        <SectionHeader
-          tag="What We Do"
-          title="Services built for"
-          accentText="growth"
-        />
+    <section id="services" className="bg-canvas py-24 md:py-32">
+      <div className="max-w-[1200px] mx-auto px-6">
+        {/* ── Header ─────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.4 }}
+          transition={{ duration: 0.6, ease }}
+          className="mb-16 max-w-[640px] md:mb-20"
+        >
+          <p className="eyebrow text-accent mb-4">What we do</p>
+          <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05]">
+            Two practices. One partner.
+          </h2>
+          <p className="mt-5 text-ink-soft text-lg leading-[1.6] max-w-[54ch]">
+            We do two things, and we do both for real: we design and build modern
+            websites, and we engineer custom AI systems that run on their own.
+            Hire us for one, or the whole arc.
+          </p>
+        </motion.div>
 
-        <div className="max-w-[720px]">
-          {services.map((service, i) => (
+        {/* ── Two pillars, divided by a hairline ─────────── */}
+        <div className="grid grid-cols-1 gap-y-16 md:grid-cols-2 md:gap-x-16 lg:gap-x-24">
+          {practices.map((pillar, p) => (
             <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
+              key={pillar.practice}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{
-                delay: i * 0.1,
-                duration: 0.6,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              className={`py-8 ${
-                i < services.length - 1 ? "border-b border-text-dark/[0.08]" : ""
-              }`}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ delay: p * 0.12, duration: 0.6, ease }}
+              className={
+                // hairline divider between the two columns on md+; top rule on each
+                p === 1
+                  ? "border-t border-hairline pt-10 md:border-l md:border-t-0 md:pl-16 md:pt-0 lg:pl-24"
+                  : "border-t border-hairline pt-10 md:pt-0"
+              }
             >
-              <h3 className="text-xl md:text-2xl font-bold text-text-dark mb-3">
-                {service.title}
-              </h3>
-              <p className="text-text-sec-dark text-sm md:text-base leading-[1.75]">
-                {service.description}
+              {/* Pillar header */}
+              <div className="flex items-baseline gap-4">
+                <span className="eyebrow tnum text-accent">{pillar.number}</span>
+                <h3 className="font-display text-2xl md:text-3xl text-ink leading-tight">
+                  {pillar.practice}
+                </h3>
+              </div>
+              <p className="mt-3 text-ink-soft leading-[1.6] max-w-[42ch]">
+                {pillar.tagline}
               </p>
+
+              {/* Thin accent rule under the pillar header */}
+              <div className="mt-7 h-px w-12 gradient-bg opacity-70" aria-hidden />
+
+              {/* Capabilities */}
+              <ul className="mt-7 space-y-7">
+                {pillar.items.map((item) => (
+                  <li key={item.title}>
+                    <h4 className="font-display text-lg text-ink leading-snug">
+                      {item.title}
+                    </h4>
+                    <p className="mt-1.5 text-ink-soft leading-[1.7] max-w-[44ch]">
+                      {item.description}
+                    </p>
+                  </li>
+                ))}
+              </ul>
             </motion.div>
           ))}
         </div>

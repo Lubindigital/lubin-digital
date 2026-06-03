@@ -3,222 +3,231 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
-import {
-  Mail,
-  FileText,
-  Image as ImageIcon,
-  MessageSquare,
-  Sparkles,
-  Check,
-  Calendar,
-  Database,
-  ShoppingBag,
-  ShieldCheck,
-} from "lucide-react";
 
 const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
-
 const meta = [
+  { label: "Client", value: "Tahoe Teas, Ecommerce" },
   { label: "Role", value: "Design + AI Engineering" },
-  { label: "Client", value: "Tahoe Teas — Ecommerce" },
-  { label: "Year", value: "2026" },
+  { label: "Engagement", value: "2025 to present" },
 ];
 
+/* The closed loop — five plain-language stages */
+const loop = [
+  {
+    step: "01",
+    title: "Ideas, ranked",
+    body: "An AI strategist proposes a ranked queue of what to publish next, grounded in empty weeks on the calendar, the Lake Tahoe season, SEO keywords nobody has covered, recent titles, and what's actually converting.",
+  },
+  {
+    step: "02",
+    title: "One click drafts every channel",
+    body: "Pick an idea and the Studio writes email, a Shopify blog post, an Instagram caption, and an SMS in parallel. Each is shaped for its own channel rather than copy-pasted.",
+  },
+  {
+    step: "03",
+    title: "A quality gate before anyone sees it",
+    body: "Each piece is drafted a few ways; a cheaper model judges which is best. A deterministic brand-voice check scores every draft 0 to 100 and strips the giveaway dash before a customer could ever read it.",
+  },
+  {
+    step: "04",
+    title: "The owner approves from her phone",
+    body: "Tica reviews and signs off on each channel through a passwordless share link. She never touches code, and nothing leaves the building without her yes.",
+  },
+  {
+    step: "05",
+    title: "Publish, then learn",
+    body: "Approved pieces auto-publish on schedule. Opens, clicks, and Shopify discount-code revenue flow back in to shape the next round of ideas.",
+  },
+];
+
+/* The four channels one idea fans out to */
 const channels = [
-  { icon: Mail, name: "Email", note: "Flows & broadcasts" },
-  { icon: FileText, name: "Blog", note: "SEO articles" },
-  { icon: ImageIcon, name: "Instagram", note: "Captions & carousels" },
-  { icon: MessageSquare, name: "SMS", note: "Short, timely" },
+  { name: "Email", note: "Welcome flow + broadcasts", status: "Live" },
+  { name: "Shopify blog", note: "SEO articles", status: "Live" },
+  { name: "Instagram", note: "Image posts", status: "Live" },
+  { name: "SMS", note: "Short, timely", status: "Built" },
 ];
 
-const highlights = [
+/* ROI band — conservative, cited */
+const roi = [
   {
-    icon: Sparkles,
-    title: "Brand voice, enforced",
-    body: "The AI writes against a detailed brand-voice rubric — so every draft sounds like Tahoe Teas, not generic marketing copy.",
+    figure: "$4,400/yr",
+    label: "Subscriptions replaced",
+    sub: "AI writer, social scheduler, blog retainer, design tool",
   },
   {
-    icon: ShieldCheck,
-    title: "Human in the loop",
-    body: "Nothing publishes without sign-off. A simple share link lets the owner review and approve each channel before it goes out.",
+    figure: "~12 hrs/mo",
+    label: "Owner time reclaimed",
+    sub: "Writing & scheduling, valued at ~$40/hr",
   },
   {
-    icon: Database,
-    title: "One unified log",
-    body: "Every send across every channel writes to a single record — the full customer journey in one place, not siloed by tool.",
+    figure: "~$10,100/yr",
+    label: "Estimated total savings",
+    sub: "Avoided tools plus reclaimed labor",
+  },
+];
+
+/* What makes it trustworthy — honest, plain */
+const principles = [
+  {
+    title: "Grounded in its own voice",
+    body: "Every draft is checked against the brand's previously approved copy with pgvector, so new writing sounds like Tahoe Teas, not like a model.",
   },
   {
-    icon: Calendar,
-    title: "Scheduling & automation",
-    body: "Welcome and follow-up emails trigger automatically; blog, social, and SMS publish on a schedule with no manual steps.",
+    title: "Human in the loop, by design",
+    body: "Nothing publishes without an explicit, per-channel yes from the owner. The AI proposes and drafts; a person decides.",
   },
   {
-    icon: ShoppingBag,
-    title: "Wired into Shopify",
-    body: "Subscribers, unique discount codes, and published articles sync directly with the store — the system and shop stay in step.",
+    title: "Honest about its limits",
+    body: "SMS is built and consent-compliant but waits on carrier approval. Instagram posts images; music needs a manual finish. Facebook was deferred on purpose.",
   },
   {
-    icon: Check,
-    title: "Production-grade stack",
-    body: "Built on a modern serverless foundation — fast, reliable, and inexpensive to run, with room to grow as the brand scales.",
+    title: "Wired into the store",
+    body: "Subscribers, unique discount codes, and published articles sync with Shopify, and revenue from those codes is attributed back to the content that drove it.",
   },
 ];
 
 const stack = [
-  "Next.js",
-  "React",
-  "TypeScript",
-  "Vercel",
-  "Claude (AI SDK)",
-  "Postgres",
-  "Shopify",
+  "Next.js 16",
+  "React 19",
+  "Tailwind v4",
+  "Drizzle + Neon (pgvector)",
   "Resend",
-];
-
-const outcomes = [
-  "One idea becomes email, blog, Instagram, and SMS — all on-brand, from a single source.",
-  "A consistent brand voice across every channel, instead of drift between tools and writers.",
-  "Far less manual re-writing and copy-pasting, with publishing handled on a schedule.",
-  "The owner stays in control — reviewing and approving everything before it reaches customers.",
+  "Shopify Admin GraphQL",
+  "Instagram Graph API",
+  "Twilio",
+  "Notion",
+  "Vercel Blob + Cron",
+  "AI SDK v6 + AI Gateway",
+  "Claude Opus 4.6 + Haiku 4.5",
 ];
 
 export function TahoeTeasCaseStudy() {
   return (
-    <main className="bg-dark">
+    <main className="bg-canvas">
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
-        {/* subtle gradient glow */}
-        <div className="pointer-events-none absolute -top-40 left-1/2 h-[480px] w-[480px] -translate-x-1/2 rounded-full bg-blue/20 blur-[140px]" />
-
-        <div className="relative max-w-[1140px] mx-auto px-6">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20">
+        <div className="max-w-[1200px] mx-auto px-6">
           <motion.p
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            transition={{ duration: 0.7, ease }}
-            className="text-xs font-bold uppercase tracking-[3px] gradient-text mb-6"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease }}
+            className="eyebrow text-accent mb-6"
           >
-            Case Study · AI Solutions for Ecommerce
+            Case Study · AI for Ecommerce
           </motion.p>
 
           <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            transition={{ duration: 0.7, delay: 0.1, ease }}
-            className="mb-6"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.08, ease }}
+            className="mb-7"
           >
             <Image
-              src="/tahoe/tahoe-teas-wordmark-sand.png"
+              src="/tahoe/tahoe-teas-wordmark.png"
               alt="Tahoe Teas"
               width={420}
               height={120}
-              className="h-9 w-auto opacity-90"
+              className="h-8 w-auto"
               priority
             />
           </motion.div>
 
           <motion.h1
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            transition={{ duration: 0.8, delay: 0.15, ease }}
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight max-w-[820px] mb-6 text-text-light"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.14, ease }}
+            className="font-display text-ink text-[clamp(2.4rem,6vw,4.25rem)] leading-[1.05] max-w-[18ch] mb-7 text-balance"
           >
-            An <span className="accent-text gradient-underline">AI content engine</span> for a
-            Lake Tahoe tea brand
+            A content system that runs the marketing for a Lake Tahoe tea brand
           </motion.h1>
 
           <motion.p
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            transition={{ duration: 0.8, delay: 0.25, ease }}
-            className="text-text-sec-light text-base md:text-lg leading-[1.75] max-w-[620px] mb-10"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.22, ease }}
+            className="text-ink-soft text-lg leading-[1.7] max-w-[62ch] mb-10"
           >
-            Tahoe Teas had great products and a clear voice &mdash; but reaching customers
-            meant re-writing the same idea by hand for email, the blog, Instagram, and SMS. We
-            built the AI systems that do it for them: write once, publish everywhere, with a
-            human approving every step.
+            Tica and Mike run Tahoe Teas as a family. They have a real voice and
+            real products &mdash; what they didn&apos;t have was the time to
+            re-write the same idea for email, the blog, Instagram, and a text.
+            So we built the software that does it for them, end to end, with Tica
+            approving every word before it ships.
           </motion.p>
 
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            transition={{ duration: 0.8, delay: 0.35, ease }}
-            className="flex flex-wrap gap-x-12 gap-y-6 border-t border-white/[0.08] pt-8"
+          <motion.dl
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.3, ease }}
+            className="flex flex-wrap gap-x-12 gap-y-6 border-t border-hairline pt-8"
           >
             {meta.map((m) => (
               <div key={m.label}>
-                <p className="text-xs uppercase tracking-[2px] text-text-sec-light mb-1.5">
-                  {m.label}
-                </p>
-                <p className="text-text-light font-semibold text-sm md:text-base">{m.value}</p>
+                <dt className="eyebrow text-ink-soft/70 mb-1.5">{m.label}</dt>
+                <dd className="text-ink font-medium text-sm md:text-base">
+                  {m.value}
+                </dd>
               </div>
             ))}
-          </motion.div>
+          </motion.dl>
         </div>
       </section>
 
       {/* ── Hero image ───────────────────────────────────────── */}
-      <section className="max-w-[1140px] mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+      <section className="max-w-[1200px] mx-auto px-6">
+        <motion.figure
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, ease }}
-          className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl border border-white/[0.06]"
+          transition={{ duration: 0.7, ease }}
+          className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-hairline"
         >
           <Image
             src="/tahoe/lake-hero.jpg"
-            alt="Tahoe Teas blends by the lake"
+            alt="Tahoe Teas blends by Lake Tahoe"
             fill
-            sizes="(max-width: 1140px) 100vw, 1140px"
+            sizes="(max-width: 1200px) 100vw, 1200px"
             className="object-cover"
+            priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent" />
-        </motion.div>
+        </motion.figure>
       </section>
 
-      {/* ── Challenge ────────────────────────────────────────── */}
-      <section className="max-w-[1140px] mx-auto px-6 py-24 md:py-32">
+      {/* ── The challenge ────────────────────────────────────── */}
+      <section className="max-w-[1200px] mx-auto px-6 py-24 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease }}
           >
-            <p className="text-xs font-bold uppercase tracking-[3px] gradient-text mb-4">
-              The Challenge
-            </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-text-light tracking-tight mb-6">
-              Great content, multiplied by hand
+            <p className="eyebrow text-accent mb-4">Where it started</p>
+            <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] mb-6">
+              From one email flow to the whole calendar
             </h2>
-            <p className="text-text-sec-light text-base leading-[1.75] mb-4">
-              Growing an ecommerce brand means showing up everywhere customers are &mdash; the
-              inbox, the blog, the feed, the text thread. For a small team, that turns one good
-              idea into hours of re-writing the same story four different ways.
+            <p className="text-ink-soft text-base leading-[1.75] max-w-[60ch] mb-4">
+              The first job was narrow: replace Klaviyo for the welcome flow and
+              the signup popup. We cut that over in May 2026. It worked, and the
+              real problem became obvious &mdash; the welcome email was only one
+              of the four places Tahoe Teas needed to show up every week.
             </p>
-            <p className="text-text-sec-light text-base leading-[1.75]">
-              The work was manual and fragmented, and the brand&apos;s distinctive voice drifted
-              between channels and tools. Tahoe Teas needed to scale their output without
-              scaling their team &mdash; and without sounding like everyone else.
+            <p className="text-ink-soft text-base leading-[1.75] max-w-[60ch]">
+              In June 2026 we rebranded the app from the &ldquo;Email
+              System&rdquo; to the <strong className="text-ink font-medium">Tahoe
+              Teas Content System</strong> and gave it a single job: take one
+              good idea and turn it into a week of on-brand content, without Tica
+              writing any of it from scratch.
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+          <motion.figure
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.7, ease }}
-            className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl border border-white/[0.06]"
+            className="relative aspect-[4/5] w-full overflow-hidden rounded-xl border border-hairline"
           >
             <Image
               src="/tahoe/loose-leaf-bowl.jpg"
@@ -227,340 +236,289 @@ export function TahoeTeasCaseStudy() {
               sizes="(max-width: 1024px) 100vw, 460px"
               className="object-cover"
             />
+          </motion.figure>
+        </div>
+      </section>
+
+      {/* ── The loop (ink band for rhythm) ───────────────────── */}
+      <section className="bg-ink-bg py-24 md:py-32">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.7, ease }}
+            className="mb-14 max-w-[640px]"
+          >
+            <p className="eyebrow text-accent mb-4">The loop</p>
+            <h2 className="font-display text-4xl md:text-5xl text-on-ink leading-[1.05] mb-4">
+              Idea in, published content out, then it learns
+            </h2>
+            <p className="text-on-ink-soft text-lg leading-[1.6]">
+              The whole system is a closed loop. Each round of publishing feeds
+              the next round of ideas &mdash; so it&apos;s built to get sharper
+              the more it runs.
+            </p>
+          </motion.div>
+
+          {/* Five stages as a numbered hairline list */}
+          <ol className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 border-t border-hairline-on-ink">
+            {loop.map((s, i) => (
+              <motion.li
+                key={s.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.55, delay: i * 0.08, ease }}
+                className="border-b border-hairline-on-ink py-8 lg:border-b-0 lg:border-r lg:px-6 lg:py-0 lg:first:pl-0 lg:last:border-r-0 lg:pt-8"
+              >
+                <p className="eyebrow tnum text-accent mb-4">{s.step}</p>
+                <h3 className="text-on-ink font-medium text-lg mb-2.5">
+                  {s.title}
+                </h3>
+                <p className="text-on-ink-soft text-sm leading-[1.7]">
+                  {s.body}
+                </p>
+              </motion.li>
+            ))}
+          </ol>
+
+          {/* Channel fan-out */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease }}
+            className="mt-16"
+          >
+            <p className="eyebrow text-on-ink-soft mb-5">
+              One idea → four channels
+            </p>
+            <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-hairline-on-ink bg-hairline-on-ink sm:grid-cols-4">
+              {channels.map((c) => (
+                <div key={c.name} className="bg-ink-bg px-5 py-6">
+                  <div className="mb-1.5 flex items-center gap-2">
+                    <span className="text-on-ink font-medium">{c.name}</span>
+                    <span
+                      className={`eyebrow text-[0.6rem] ${
+                        c.status === "Live" ? "text-accent" : "text-on-ink-soft"
+                      }`}
+                    >
+                      {c.status}
+                    </span>
+                  </div>
+                  <p className="text-on-ink-soft text-sm">{c.note}</p>
+                </div>
+              ))}
+            </div>
+            <p className="mt-4 text-on-ink-soft/80 text-xs leading-relaxed max-w-[60ch]">
+              SMS is built and TCPA-consent-compliant, pending carrier approval
+              (Twilio A2P 10DLC). Instagram posts images; reels with music need a
+              quick manual finish. Facebook cross-posting was deferred on purpose.
+            </p>
           </motion.div>
         </div>
       </section>
 
-      {/* ── What we built ────────────────────────────────────── */}
-      <section className="bg-dark-light py-24 md:py-32">
-        <div className="max-w-[1140px] mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, ease }}
-            className="mb-14"
-          >
-            <p className="text-xs font-bold uppercase tracking-[3px] gradient-text mb-4">
-              What We Built
-            </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-text-light tracking-tight max-w-[640px]">
-              Two AI systems, one connected workflow
-            </h2>
-          </motion.div>
+      {/* ── What makes it trustworthy ────────────────────────── */}
+      <section className="max-w-[1200px] mx-auto px-6 py-24 md:py-32">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease }}
+          className="mb-14 max-w-[640px]"
+        >
+          <p className="eyebrow text-accent mb-4">Why it can be trusted</p>
+          <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05]">
+            Automated, but never on autopilot
+          </h2>
+        </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                icon: Mail,
-                kicker: "System 01",
-                title: "AI Email System",
-                body: "A custom email platform that replaced an off-the-shelf tool. Automated welcome and follow-up flows trigger on signup, broadcasts go out to the full list, and every message uses branded, on-voice templates — with delivery, opens, and clicks tracked.",
-                points: [
-                  "Behavior-triggered welcome & drip flows",
-                  "One-off broadcasts to the whole list",
-                  "Branded templates, generated in-voice",
-                  "Delivery & engagement tracking",
-                ],
-              },
-              {
-                icon: Sparkles,
-                kicker: "System 02",
-                title: "AI Content System",
-                body: "The heart of the project: write once, publish everywhere. A single source idea is transformed by AI into channel-perfect email, blog, Instagram, and SMS — each matched to a strict brand voice, reviewed by a human, then scheduled and published automatically.",
-                points: [
-                  "One source → four on-brand channels",
-                  "Brand-voice rubric baked into every prompt",
-                  "Share-link review & approval workflow",
-                  "Scheduling, publishing & a unified log",
-                ],
-              },
-            ].map((sys, i) => (
-              <motion.div
-                key={sys.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.6, delay: i * 0.12, ease }}
-                className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-8 md:p-10"
-              >
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-lg gradient-bg text-white">
-                    <sys.icon className="h-5 w-5" strokeWidth={1.75} />
-                  </span>
-                  <span className="text-[0.65rem] font-semibold uppercase tracking-[2.5px] text-teal">
-                    {sys.kicker}
-                  </span>
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold text-text-light mb-3">
-                  {sys.title}
-                </h3>
-                <p className="text-text-sec-light text-sm md:text-base leading-[1.75] mb-6">
-                  {sys.body}
-                </p>
-                <ul className="space-y-2.5">
-                  {sys.points.map((p) => (
-                    <li key={p} className="flex items-start gap-2.5">
-                      <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-teal" strokeWidth={2.5} />
-                      <span className="text-text-sec-light text-sm leading-relaxed">{p}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+        <div className="grid grid-cols-1 gap-x-12 gap-y-12 md:grid-cols-2 border-t border-hairline pt-12">
+          {principles.map((p, i) => (
+            <motion.div
+              key={p.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: (i % 2) * 0.08, ease }}
+            >
+              <h3 className="font-display text-2xl text-ink mb-3">{p.title}</h3>
+              <p className="text-ink-soft text-base leading-[1.7] max-w-[52ch]">
+                {p.body}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Product imagery break ────────────────────────────── */}
+      <section className="bg-canvas-2 py-24 md:py-32">
+        <div className="max-w-[1200px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-[0.95fr_1.05fr] gap-12 lg:gap-20 items-center">
+            <motion.figure
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7, ease }}
+              className="relative order-2 lg:order-1 aspect-[4/5] w-full overflow-hidden rounded-xl border border-hairline"
+            >
+              <Image
+                src="/tahoe/two-mugs.png"
+                alt="Two mugs of Tahoe Teas"
+                fill
+                sizes="(max-width: 1024px) 100vw, 460px"
+                className="object-cover"
+              />
+            </motion.figure>
+
+            <motion.div
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7, ease }}
+              className="order-1 lg:order-2"
+            >
+              <p className="eyebrow text-accent mb-4">What changed for them</p>
+              <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] mb-6">
+                A two-person shop that publishes like a team
+              </h2>
+              <p className="text-ink-soft text-base leading-[1.75] max-w-[56ch] mb-4">
+                Instead of staring at a blank calendar, Tica opens a ranked list
+                of ideas that already know what the store needs. One click drafts
+                the week. She reviews it on her phone, approves what she likes,
+                and the rest publishes on schedule.
+              </p>
+              <p className="text-ink-soft text-base leading-[1.75] max-w-[56ch]">
+                The brand voice holds steady across every channel because it&apos;s
+                grounded in their own past writing &mdash; not a generic template,
+                and not a tone that drifts from tool to tool.
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ── Pipeline diagram ─────────────────────────────────── */}
-      <section className="max-w-[1140px] mx-auto px-6 py-24 md:py-32">
+      {/* ── ROI band ─────────────────────────────────────────── */}
+      <section className="max-w-[1200px] mx-auto px-6 py-24 md:py-32">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.7, ease }}
+          className="mb-14 max-w-[640px]"
+        >
+          <p className="eyebrow text-accent mb-4">The math</p>
+          <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05]">
+            What building it in-house saves
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 border-t border-hairline">
+          {roi.map((r, i) => (
+            <motion.div
+              key={r.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.55, delay: i * 0.1, ease }}
+              className="border-b border-hairline py-10 sm:border-b-0 sm:border-r sm:px-8 sm:py-0 sm:first:pl-0 sm:last:border-r-0 sm:pt-0"
+            >
+              <p className="font-display tnum text-accent text-5xl md:text-6xl leading-none mb-4">
+                {r.figure}
+              </p>
+              <p className="eyebrow text-ink mb-2">{r.label}</p>
+              <p className="text-ink-soft text-sm leading-[1.6] max-w-[28ch]">
+                {r.sub}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease }}
+          className="mt-12 grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-10 lg:gap-16"
+        >
+          <p className="text-ink-soft text-base leading-[1.75] max-w-[58ch]">
+            The honest version: a custom build like this pays for itself by
+            retiring a stack of subscriptions and handing Tica back the better
+            part of a workday each week. We&apos;ve kept the numbers deliberately
+            small &mdash; they count only the tools the system replaces and the
+            hours it gives back, with no revenue claims attached.
+          </p>
+          <p className="text-ink-soft/80 text-sm leading-[1.7] border-l border-hairline pl-6">
+            <span className="eyebrow text-ink-soft block mb-2">
+              Assumptions
+            </span>
+            Replaced tools: AI writer (~$468/yr), Buffer (~$180/yr), a freelance
+            blog/SEO retainer at 2 posts/mo × $150 (~$3,600/yr), and Canva
+            (~$120/yr). Reclaimed time: ~12 hrs/mo at a conservative ~$40/hr
+            (~$5,760/yr). The email-sending platform itself is counted at $0
+            &mdash; the brand still needs one. Real benefit is likely higher.
+          </p>
+        </motion.div>
+      </section>
+
+      {/* ── Stack ────────────────────────────────────────────── */}
+      <section className="max-w-[1200px] mx-auto px-6 pb-24 md:pb-32">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, ease }}
+          className="border-t border-hairline pt-12"
+        >
+          <p className="eyebrow text-ink-soft/70 mb-6">Built with</p>
+          <ul className="flex flex-wrap gap-2.5">
+            {stack.map((t) => (
+              <li
+                key={t}
+                className="rounded-md border border-hairline px-3.5 py-1.5 text-sm font-medium text-ink-soft"
+              >
+                {t}
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+      </section>
+
+      {/* ── CTA ──────────────────────────────────────────────── */}
+      <section className="max-w-[1200px] mx-auto px-6 pb-28">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.7, ease }}
-          className="mb-14 text-center"
+          className="rounded-xl border border-hairline bg-canvas-2 px-8 py-16 md:px-16 md:py-20 text-center"
         >
-          <p className="text-xs font-bold uppercase tracking-[3px] gradient-text mb-4">
-            How It Works
-          </p>
-          <h2 className="text-3xl md:text-4xl font-extrabold text-text-light tracking-tight">
-            Write once, <span className="accent-text gradient-underline">publish everywhere</span>
+          <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] mb-5">
+            Doing the same work by hand?
           </h2>
-        </motion.div>
-
-        <div className="mx-auto flex max-w-[760px] flex-col items-center">
-          {/* Stage 1 — Source */}
-          <Stage delay={0}>
-            <StageCard title="One source" sub="An idea, a blog post, a campaign brief" />
-          </Stage>
-          <Connector />
-
-          {/* Stage 2 — AI engine */}
-          <Stage delay={0.1}>
-            <div className="w-full rounded-2xl gradient-bg p-[1.5px]">
-              <div className="rounded-2xl bg-dark px-6 py-5 text-center">
-                <div className="mb-1 flex items-center justify-center gap-2">
-                  <Sparkles className="h-4 w-4 text-teal" />
-                  <span className="text-sm font-bold text-text-light">Claude AI + Brand Voice</span>
-                </div>
-                <p className="text-xs text-text-sec-light">
-                  Drafts in the Tahoe Teas voice — checked against a brand-voice rubric
-                </p>
-              </div>
-            </div>
-          </Stage>
-          <Connector />
-
-          {/* Stage 3 — Fan-out to channels */}
-          <Stage delay={0.2}>
-            <div className="grid w-full grid-cols-2 gap-3 sm:grid-cols-4">
-              {channels.map((c) => (
-                <div
-                  key={c.name}
-                  className="rounded-xl border border-white/[0.08] bg-white/[0.03] px-3 py-4 text-center"
-                >
-                  <c.icon className="mx-auto mb-2 h-5 w-5 text-blue" strokeWidth={1.75} />
-                  <p className="text-sm font-semibold text-text-light">{c.name}</p>
-                  <p className="mt-0.5 text-[0.7rem] text-text-sec-light">{c.note}</p>
-                </div>
-              ))}
-            </div>
-          </Stage>
-          <Connector />
-
-          {/* Stage 4 — Review */}
-          <Stage delay={0.3}>
-            <StageCard
-              title="Review & approve"
-              sub="The owner signs off per channel via a share link"
-              icon={<ShieldCheck className="h-4 w-4 text-teal" />}
-            />
-          </Stage>
-          <Connector />
-
-          {/* Stage 5 — Publish */}
-          <Stage delay={0.4}>
-            <StageCard
-              title="Publish & schedule"
-              sub="Sent and posted automatically, across every channel"
-              icon={<Calendar className="h-4 w-4 text-teal" />}
-            />
-          </Stage>
-        </div>
-      </section>
-
-      {/* ── Highlights ───────────────────────────────────────── */}
-      <section className="bg-dark-light py-24 md:py-32">
-        <div className="max-w-[1140px] mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, ease }}
-            className="mb-14"
-          >
-            <p className="text-xs font-bold uppercase tracking-[3px] gradient-text mb-4">
-              Highlights
-            </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-text-light tracking-tight max-w-[640px]">
-              The details that make it work
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {highlights.map((h, i) => (
-              <motion.div
-                key={h.title}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.55, delay: (i % 3) * 0.1, ease }}
-                className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-7"
-              >
-                <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-white/[0.05] text-blue">
-                  <h.icon className="h-5 w-5" strokeWidth={1.75} />
-                </span>
-                <h3 className="text-base font-bold text-text-light mb-2">{h.title}</h3>
-                <p className="text-text-sec-light text-sm leading-relaxed">{h.body}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Outcome + tech stack ─────────────────────────────── */}
-      <section className="max-w-[1140px] mx-auto px-6 py-24 md:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-20 items-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, ease }}
-            className="relative order-2 lg:order-1 aspect-[4/5] w-full overflow-hidden rounded-2xl border border-white/[0.06]"
-          >
-            <Image
-              src="/tahoe/two-mugs.png"
-              alt="Two mugs of Tahoe Teas"
-              fill
-              sizes="(max-width: 1024px) 100vw, 460px"
-              className="object-cover"
-            />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, ease }}
-            className="order-1 lg:order-2"
-          >
-            <p className="text-xs font-bold uppercase tracking-[3px] gradient-text mb-4">
-              The Outcome
-            </p>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-text-light tracking-tight mb-6">
-              A small team that publishes like a big one
-            </h2>
-            <ul className="space-y-3.5 mb-10">
-              {outcomes.map((o) => (
-                <li key={o} className="flex items-start gap-3">
-                  <Check className="mt-1 h-4 w-4 flex-shrink-0 text-teal" strokeWidth={2.5} />
-                  <span className="text-text-sec-light text-base leading-relaxed">{o}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p className="text-xs uppercase tracking-[2px] text-text-sec-light mb-3.5">
-              Built with
-            </p>
-            <div className="flex flex-wrap gap-2.5">
-              {stack.map((t) => (
-                <span
-                  key={t}
-                  className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs font-semibold text-text-sec-light"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── CTA ──────────────────────────────────────────────── */}
-      <section className="max-w-[1140px] mx-auto px-6 pb-28">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.7, ease }}
-          className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-dark-light px-8 py-16 md:px-16 md:py-20 text-center"
-        >
-          <div className="pointer-events-none absolute -bottom-32 left-1/2 h-[360px] w-[360px] -translate-x-1/2 rounded-full bg-teal/20 blur-[120px]" />
-          <div className="relative">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-text-light tracking-tight mb-5">
-              Want something{" "}
-              <span className="accent-text gradient-underline">like this?</span>
-            </h2>
-            <p className="text-text-sec-light text-base max-w-[520px] mx-auto mb-9 leading-relaxed">
-              Whether you sell tea, software, or anything in between &mdash; if you&apos;re
-              re-doing the same work by hand, there&apos;s probably an AI system that can do it
-              for you. Let&apos;s talk about what to build.
-            </p>
+          <p className="text-ink-soft text-lg max-w-[52ch] mx-auto mb-9 leading-[1.6]">
+            Tea, software, or anything in between &mdash; if you keep re-typing
+            the same idea in four places, there&apos;s usually a system worth
+            building. Tell me what&apos;s eating your week.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
             <Link
               href="/#contact"
-              className="inline-block gradient-bg text-white px-8 py-3.5 rounded-lg text-sm font-semibold hover:opacity-90 hover:shadow-[0_8px_25px_rgba(8,117,233,0.3)] transition-all"
+              className="inline-flex items-center rounded-md bg-accent px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas-2"
             >
               Start a conversation
+            </Link>
+            <Link
+              href="/#portfolio"
+              className="link-underline text-sm font-semibold text-ink"
+            >
+              See more work &rarr;
             </Link>
           </div>
         </motion.div>
       </section>
     </main>
-  );
-}
-
-/* ── Diagram helpers ────────────────────────────────────────── */
-
-function Stage({ children, delay }: { children: React.ReactNode; delay: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{ duration: 0.5, delay, ease }}
-      className="w-full"
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-function StageCard({
-  title,
-  sub,
-  icon,
-}: {
-  title: string;
-  sub: string;
-  icon?: React.ReactNode;
-}) {
-  return (
-    <div className="w-full rounded-2xl border border-white/[0.08] bg-white/[0.03] px-6 py-5 text-center">
-      <div className="mb-1 flex items-center justify-center gap-2">
-        {icon}
-        <span className="text-sm font-bold text-text-light">{title}</span>
-      </div>
-      <p className="text-xs text-text-sec-light">{sub}</p>
-    </div>
-  );
-}
-
-function Connector() {
-  return (
-    <div
-      aria-hidden
-      className="my-2 h-8 w-px bg-gradient-to-b from-blue/60 to-teal/60"
-    />
   );
 }

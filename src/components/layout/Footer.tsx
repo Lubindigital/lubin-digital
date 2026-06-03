@@ -1,51 +1,84 @@
-import { CONTACT } from "@/lib/constants";
+import Image from "next/image";
+import { CONTACT, NAV_LINKS } from "@/lib/constants";
 
 export function Footer() {
   return (
-    <footer className="bg-dark">
-      {/* Start Your Journey CTA */}
-      <div className="border-t border-white/[0.06]">
-        <div className="max-w-[1140px] mx-auto px-6 py-16 text-center">
-          <span className="inline-block text-xs font-bold uppercase tracking-[3px] gradient-text mb-4">
-            Let&apos;s Build
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-text-light leading-tight tracking-tight mb-6">
-            Let&apos;s build something{" "}
-            <span className="accent-text gradient-underline">intelligent</span>
-          </h2>
-          <p className="text-text-sec-light text-base max-w-[500px] mx-auto mb-8 leading-relaxed">
-            Whether you need a new website, a custom AI system, or both &mdash;
-            tell us what you&apos;re working on and we&apos;ll help you build it right.
-          </p>
-          <a
-            href={`mailto:${CONTACT.email}`}
-            className="inline-block gradient-bg text-white px-8 py-3.5 rounded-lg text-sm font-semibold hover:opacity-90 hover:shadow-[0_4px_20px_rgba(8,117,233,0.3)] transition-all"
-          >
-            {CONTACT.email}
-          </a>
-        </div>
-      </div>
-
-      {/* Bottom Bar */}
-      <div className="border-t border-white/[0.06]">
-        <div className="max-w-[1140px] mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-white/40 text-xs">
-            &copy; 2026 Lubin Digital. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <a
-              href={`mailto:${CONTACT.email}`}
-              className="text-white/40 text-xs hover:text-white/70 transition-colors"
-            >
-              {CONTACT.email}
-            </a>
-            <a
-              href={CONTACT.phoneHref}
-              className="text-white/40 text-xs hover:text-white/70 transition-colors"
-            >
-              {CONTACT.phone}
-            </a>
+    <footer className="bg-ink-bg text-on-ink">
+      <div className="max-w-[1200px] mx-auto px-6 py-16 md:py-20">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
+          {/* Brand + positioning */}
+          <div className="max-w-[320px]">
+            <Image
+              src="/lubin-digital-logo-wave.png"
+              alt="Lubin Digital"
+              width={1375}
+              height={600}
+              className="h-7 w-auto brightness-0 invert"
+            />
+            <p className="mt-5 text-sm leading-[1.7] text-on-ink-soft">
+              An independent studio building premium websites and the custom AI
+              systems that run behind them. One partner, design to deployment.
+            </p>
           </div>
+
+          {/* Explore */}
+          <div>
+            <p className="eyebrow text-on-ink-soft/70 mb-4">Explore</p>
+            <ul className="space-y-2.5">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="link-underline text-sm text-on-ink/85 transition-colors hover:text-on-ink"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+              <li>
+                <a
+                  href="#contact"
+                  className="link-underline text-sm text-on-ink/85 transition-colors hover:text-on-ink"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <p className="eyebrow text-on-ink-soft/70 mb-4">Get in touch</p>
+            <ul className="space-y-2.5">
+              <li>
+                <a
+                  href={`mailto:${CONTACT.email}`}
+                  className="link-underline text-sm text-on-ink/85 transition-colors hover:text-on-ink"
+                >
+                  {CONTACT.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={CONTACT.phoneHref}
+                  className="link-underline text-sm text-on-ink/85 transition-colors hover:text-on-ink tnum"
+                >
+                  {CONTACT.phone}
+                </a>
+              </li>
+              <li className="text-sm text-on-ink-soft">{CONTACT.location}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-14 flex flex-col gap-2 border-t border-hairline-on-ink pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-on-ink-soft">
+            <span className="tnum">&copy; 2026</span> Lubin Digital. All rights
+            reserved.
+          </p>
+          <p className="text-xs text-on-ink-soft">
+            Designed &amp; built in-house with Next.js.
+          </p>
         </div>
       </div>
     </footer>

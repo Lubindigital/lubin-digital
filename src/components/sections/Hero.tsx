@@ -1,130 +1,143 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "motion/react";
-import AetherFlowCanvas from "@/components/ui/aether-flow-hero";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+const ease = [0.22, 1, 0.36, 1] as const;
+
+const fade = {
+  hidden: { opacity: 0, y: 16 },
   visible: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: {
-      delay: i * 0.2 + 0.5,
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-    },
+    transition: { delay: 0.1 + i * 0.09, duration: 0.6, ease },
   }),
 };
 
-const stats = [
-  { value: "90+", label: "Avg. PageSpeed" },
-  { value: "AI-Native", label: "Builds, Not Bolt-Ons" },
-  { value: "End-to-End", label: "Design + Engineering" },
-];
-
-const pills = [
-  "AI Web Design",
-  "Custom AI Solutions",
-  "Content Automation",
-  "Marketing Systems",
-  "Next.js Development",
-  "Ecommerce",
-];
+const clients = ["Tahoe Teas", "ReForm Health", "Avergent", "NVHPHP", "Tica Lubin"];
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden">
-      {/* Aether Flow particle canvas background */}
-      <AetherFlowCanvas className="absolute top-0 left-0 w-full h-full" />
+    <section
+      id="hero"
+      className="relative overflow-hidden bg-ink-bg pt-28 pb-14 md:pt-28 md:pb-20"
+    >
+      {/* faint brand gradient wash, top-right — subtle, static */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full opacity-[0.18] blur-[120px] gradient-bg"
+      />
 
-      <div className="relative z-10 max-w-[1140px] w-full mx-auto px-6 pt-28 pb-16 md:pt-32 md:pb-20">
-        {/* Headline */}
-        <motion.h1
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={0}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.25rem] font-extrabold leading-[1.1] tracking-tight max-w-[820px] mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-400"
-        >
-          AI-Driven Web Design
-          <br />
-          and Solutions
-        </motion.h1>
+      <div className="relative max-w-[1200px] mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] gap-14 lg:gap-16 items-center">
+          {/* ── Left: copy ─────────────────────────────────── */}
+          <div className="max-w-[580px]">
+            <motion.p
+              custom={0}
+              variants={fade}
+              initial="hidden"
+              animate="visible"
+              className="eyebrow gradient-text mb-6"
+            >
+              Independent Web &amp; AI Studio
+            </motion.p>
 
-        {/* Subtitle */}
-        <motion.p
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={1}
-          className="text-gray-400 text-base md:text-lg leading-[1.75] max-w-[520px] mb-10"
-        >
-          We design and build fast, modern websites &mdash; then take them
-          further with custom AI systems that automate content, marketing, and
-          operations. Design and engineering, under one roof.
-        </motion.p>
+            <motion.h1
+              custom={1}
+              variants={fade}
+              initial="hidden"
+              animate="visible"
+              className="font-display text-on-ink text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.05] mb-6 text-balance"
+            >
+              AI-Driven Web Design{" "}
+              <span className="gradient-text">&amp; Solutions</span>
+            </motion.h1>
 
-        {/* CTA Buttons */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={2}
-          className="flex flex-wrap gap-4 mb-16"
-        >
-          <a
-            href="#services"
-            className="text-sm font-semibold text-white border border-white/20 px-6 py-3 rounded-lg hover:border-white/40 hover:bg-white/5 transition-colors duration-300"
-          >
-            Our Services &rarr;
-          </a>
-          <a
-            href="#contact"
-            className="px-6 py-3 bg-white text-black font-semibold rounded-lg shadow-lg hover:bg-gray-200 transition-colors duration-300 text-sm"
-          >
-            Let&apos;s Talk
-          </a>
-        </motion.div>
+            <motion.p
+              custom={2}
+              variants={fade}
+              initial="hidden"
+              animate="visible"
+              className="text-on-ink-soft text-lg leading-[1.6] max-w-[48ch] mb-8"
+            >
+              Two practices, one partner. We design and build fast, modern
+              websites &mdash; and we engineer the custom AI systems that automate
+              content, marketing, and operations. Strategy, design, and code, from
+              first sketch to shipped software.
+            </motion.p>
 
-        {/* Stats */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={3}
-          className="flex flex-wrap gap-12 mb-10"
-        >
-          {stats.map((stat) => (
-            <div key={stat.label}>
-              <p className="text-2xl md:text-3xl font-extrabold text-white tracking-tight">
-                {stat.value}
-              </p>
-              <p className="text-xs text-gray-400 uppercase tracking-[2px] mt-1">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Divider + Pills */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="visible"
-          custom={4}
-          className="border-t border-white/[0.08] pt-8"
-        >
-          <div className="flex flex-wrap gap-3">
-            {pills.map((pill) => (
-              <span
-                key={pill}
-                className="text-[0.65rem] font-semibold uppercase tracking-[2px] text-gray-400 border border-white/10 px-4 py-2 rounded-full backdrop-blur-sm"
+            <motion.div
+              custom={3}
+              variants={fade}
+              initial="hidden"
+              animate="visible"
+              className="flex flex-wrap items-center gap-x-6 gap-y-4"
+            >
+              <a
+                href="#contact"
+                className="inline-flex items-center rounded-md bg-accent px-6 py-3.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-bg"
               >
-                {pill}
-              </span>
-            ))}
+                Start a project
+              </a>
+              <a
+                href="#portfolio"
+                className="link-underline text-sm font-semibold text-on-ink"
+              >
+                See our work &rarr;
+              </a>
+            </motion.div>
+
+            {/* Trust line — real client names */}
+            <motion.div
+              custom={4}
+              variants={fade}
+              initial="hidden"
+              animate="visible"
+              className="mt-9 border-t border-hairline-on-ink pt-6"
+            >
+              <p className="eyebrow text-on-ink-soft/70 mb-3">Selected work</p>
+              <div className="flex flex-wrap gap-x-5 gap-y-2">
+                {clients.map((c) => (
+                  <span key={c} className="text-sm font-medium text-on-ink-soft">
+                    {c}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+
+          {/* ── Right: static framed showcase ──────────────── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.8, ease }}
+            className="relative"
+          >
+            {/* offset back panel for depth */}
+            <div
+              aria-hidden
+              className="absolute right-3 top-3 hidden h-full w-full rounded-xl border border-hairline-on-ink bg-ink-bg-2 sm:block"
+            />
+            <div className="relative overflow-hidden rounded-xl border border-hairline-on-ink bg-ink-bg-2 shadow-[0_24px_70px_-20px_rgba(0,0,0,0.6)]">
+              {/* slim top bar */}
+              <div className="flex items-center gap-2 border-b border-hairline-on-ink px-4 py-2.5">
+                <span className="h-1.5 w-1.5 rounded-full bg-white/20" />
+                <span className="mx-auto rounded-full bg-white/[0.06] px-3 py-0.5 font-mono text-[0.65rem] text-on-ink-soft">
+                  avergent.com
+                </span>
+              </div>
+              <Image
+                src="/portfolio/avergent.png"
+                alt="Avergent — a website designed and built by Lubin Digital"
+                width={1440}
+                height={900}
+                priority
+                sizes="(max-width: 1024px) 90vw, 540px"
+                className="h-auto w-full"
+              />
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

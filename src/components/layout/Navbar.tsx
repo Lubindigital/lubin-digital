@@ -1,108 +1,137 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import { NAV_LINKS, CTA_PRIMARY, CTA_SECONDARY } from "@/lib/constants";
 
+const focusRing =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-bg rounded-sm";
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const hamburgerRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const prevOpen = useRef(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => setScrolled(window.scrollY > 24);
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setMenuOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      panelRef.current?.querySelector<HTMLElement>("a, button")?.focus();
+    } else if (prevOpen.current) {
+      hamburgerRef.current?.focus();
+    }
+    prevOpen.current = menuOpen;
+  }, [menuOpen]);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMenuOpen(false);
     const target = document.querySelector(href);
     if (target) {
-      const offset = 80;
-      const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      const top = target.getBoundingClientRect().top + window.pageYOffset - 76;
       window.scrollTo({ top, behavior: "smooth" });
     }
   };
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-dark/95 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.3)] py-2.5"
-          : "bg-dark/80 backdrop-blur-sm py-4"
+          ? "border-b border-white/10 bg-ink-bg/90 py-3 backdrop-blur-xl"
+          : "border-b border-transparent py-5"
       }`}
     >
-      <div className="max-w-[1140px] mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="block" onClick={(e) => handleLinkClick(e, "#hero")}>
+      <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between">
+        <a
+          href="#hero"
+          className={`block ${focusRing}`}
+          onClick={(e) => handleLinkClick(e, "#hero")}
+          aria-label="Lubin Digital — home"
+        >
           <Image
             src="/lubin-digital-logo-wave.png"
             alt="Lubin Digital"
             width={1375}
             height={600}
-            className={`transition-all duration-300 brightness-0 invert ${
-              scrolled ? "h-[28px]" : "h-[34px]"
-            } w-auto`}
+            className={`w-auto brightness-0 invert transition-all duration-300 ${
+              scrolled ? "h-[26px]" : "h-[30px]"
+            }`}
             priority
           />
         </a>
 
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop */}
+        <div className="hidden md:flex items-center gap-9">
           <ul className="flex items-center gap-8">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={(e) => handleLinkClick(e, link.href)}
-                  className="text-sm font-medium text-text-sec-light hover:text-text-light transition-colors cursor-pointer"
+                  className={`link-underline text-sm font-medium text-on-ink-soft transition-colors hover:text-on-ink ${focusRing}`}
                 >
                   {link.label}
                 </a>
               </li>
             ))}
           </ul>
-          <div className="flex items-center gap-3 ml-4">
+          <div className="flex items-center gap-3">
             <a
               href={CTA_SECONDARY.href}
               onClick={(e) => handleLinkClick(e, CTA_SECONDARY.href)}
-              className="text-sm font-semibold text-text-light border border-white/20 px-5 py-2 rounded-lg hover:border-white/40 hover:bg-white/5 transition-all cursor-pointer"
+              className={`rounded-md border border-white/20 px-5 py-2 text-sm font-semibold text-on-ink transition-colors hover:border-white/40 hover:bg-white/5 ${focusRing}`}
             >
-              {CTA_SECONDARY.label} &rarr;
+              {CTA_SECONDARY.label}
             </a>
             <a
               href={CTA_PRIMARY.href}
               onClick={(e) => handleLinkClick(e, CTA_PRIMARY.href)}
-              className="gradient-bg text-white px-5 py-2 rounded-lg text-sm font-semibold hover:opacity-90 hover:shadow-[0_4px_15px_rgba(8,117,233,0.3)] transition-all cursor-pointer"
+              className={`rounded-md bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-strong ${focusRing}`}
             >
               {CTA_PRIMARY.label}
             </a>
           </div>
         </div>
 
-        {/* Mobile Hamburger — z-[60] so it stays above the sidebar (z-50) */}
+        {/* Mobile hamburger */}
         <button
-          className="md:hidden relative z-[60] flex flex-col gap-[5px] p-1.5 cursor-pointer"
+          ref={hamburgerRef}
+          className={`md:hidden relative z-[60] flex flex-col gap-[5px] p-1.5 ${focusRing}`}
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-menu"
         >
           <motion.span
             animate={menuOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
-            className="block w-6 h-0.5 bg-white/80"
+            className="block h-0.5 w-6 bg-white/90"
           />
           <motion.span
             animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="block w-6 h-0.5 bg-white/80"
+            className="block h-0.5 w-6 bg-white/90"
           />
           <motion.span
             animate={menuOpen ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
-            className="block w-6 h-0.5 bg-white/80"
+            className="block h-0.5 w-6 bg-white/90"
           />
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <>
@@ -110,15 +139,21 @@ export function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/40 z-40 md:hidden"
+              className="fixed inset-0 z-40 bg-black/50 md:hidden"
               onClick={() => setMenuOpen(false)}
+              aria-hidden
             />
             <motion.div
+              ref={panelRef}
+              id="mobile-menu"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Site menu"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 w-[280px] h-screen bg-dark z-50 shadow-xl pt-20 px-6 md:hidden"
+              transition={{ type: "spring", damping: 26, stiffness: 220 }}
+              className="fixed right-0 top-0 z-50 h-screen w-[280px] bg-ink-bg px-6 pt-20 shadow-xl md:hidden"
             >
               <ul className="flex flex-col">
                 {NAV_LINKS.map((link) => (
@@ -126,7 +161,7 @@ export function Navbar() {
                     <a
                       href={link.href}
                       onClick={(e) => handleLinkClick(e, link.href)}
-                      className="block py-3.5 text-text-light text-base font-medium border-b border-white/10 cursor-pointer"
+                      className={`block border-b border-white/10 py-3.5 text-base font-medium text-on-ink ${focusRing}`}
                     >
                       {link.label}
                     </a>
@@ -136,16 +171,16 @@ export function Navbar() {
                   <a
                     href={CTA_SECONDARY.href}
                     onClick={(e) => handleLinkClick(e, CTA_SECONDARY.href)}
-                    className="block text-text-light text-center py-3 px-5 rounded-lg font-semibold border border-white/20 cursor-pointer"
+                    className={`block rounded-md border border-white/20 px-5 py-3 text-center font-semibold text-on-ink ${focusRing}`}
                   >
-                    {CTA_SECONDARY.label} &rarr;
+                    {CTA_SECONDARY.label}
                   </a>
                 </li>
                 <li className="mt-3">
                   <a
                     href={CTA_PRIMARY.href}
                     onClick={(e) => handleLinkClick(e, CTA_PRIMARY.href)}
-                    className="block gradient-bg text-white text-center py-3 px-5 rounded-lg font-semibold cursor-pointer"
+                    className={`block rounded-md bg-accent px-5 py-3 text-center font-semibold text-white ${focusRing}`}
                   >
                     {CTA_PRIMARY.label}
                   </a>

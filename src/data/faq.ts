@@ -5,33 +5,33 @@ export interface FaqItem {
 
 export const faqItems: FaqItem[] = [
   {
-    question: "What does an AI-driven web practice actually do?",
-    answer:
-      "Two things, often together. First, we design and build modern websites — fast, polished, and conversion-focused. Then we go further: custom AI systems that automate the work behind your site, from content and marketing to internal tools. You get the front end and the intelligence running behind it, from one partner.",
-  },
-  {
-    question: "Can you add AI to my existing website or store?",
-    answer:
-      "Yes. You don't need to rebuild from scratch. We integrate with what you already run — Shopify, your CMS, your data — and layer in the automation or AI features that move the needle, whether that's content generation, smarter email, or a custom assistant.",
-  },
-  {
-    question: "What kinds of AI solutions do you build?",
-    answer:
-      "Content and marketing automation (one source published to email, blog, social, and SMS), behavior-triggered email flows, internal tools that cut manual work, chat and assistants, and model integrations wired into your existing platforms. If it's repetitive and rules-based, it's a candidate for automation.",
-  },
-  {
-    question: "Do you still build regular websites, or only AI projects?",
-    answer:
-      "Both. Plenty of clients just want a beautiful, fast, well-built website — and that's the foundation of everything we do. AI is an option we layer on when it earns its place, not a requirement.",
-  },
-  {
     question: "How long does a project take?",
     answer:
-      "A focused website typically launches in 1–3 weeks once we have your information. Custom AI systems vary with scope — we'll scope it clearly and give you a realistic timeline and milestones upfront, so there are no surprises.",
+      "A focused marketing site usually goes live in about two to three weeks once you've handed over copy, photos, and brand details. The first week is design and structure; the second is building and refining; we use the time after that for revisions and launch. Larger builds or anything with custom AI take longer, and I'll give you a real timeline with milestones before we start — not a vague \"a few weeks.\"",
   },
   {
-    question: "Do you work with ecommerce and Shopify?",
+    question: "What does it cost, and how do you price?",
     answer:
-      "Yes. We recently built an AI email and content system for Tahoe Teas, a Lake Tahoe ecommerce brand — automated, on-brand campaigns across email, blog, social, and SMS, integrated directly with Shopify. See the Tahoe Teas case study for the full story.",
+      "I quote a fixed price per project, not an hourly rate, so you know the number before we begin and it doesn't move unless the scope does. A typical small-business site lands in the low-to-mid four figures; ecommerce or custom AI work is more, depending on what we're building. Tell me what you need and roughly what you're working with, and I'll send back an honest quote — if your budget and the project don't match, I'll say so.",
+  },
+  {
+    question: "Do I own the site, and can I edit it myself?",
+    answer:
+      "Yes — it's yours. You own the code, the domain, and the content, and nothing is locked to me. For most sites I set up a simple editor so you can change text, swap photos, and add pages without touching code or paying me for small tweaks. If you'd rather I handle updates, I offer that too, but it's your choice, not a subscription you're trapped in.",
+  },
+  {
+    question: "You use AI — does that mean my site will look generic?",
+    answer:
+      "Fair concern, and the honest answer is no — because of how I use it. I don't paste a site out of a generator and call it done. Design, layout, and the words are decided deliberately for your business; AI mostly does the heavy lifting behind the scenes — drafting first-pass content, automating email and marketing, handling repetitive work. The visible result is custom and reviewed by a human (me). If anything ever feels templated, that's a bug, and we fix it.",
+  },
+  {
+    question: "What if I just need a website, not AI?",
+    answer:
+      "Then that's what we build. Plenty of clients come to me for a clean, fast, well-made site and nothing more — and that's completely fine. AI is something I add only when it genuinely saves you time or money, never a requirement. A great website on its own is reason enough to work together.",
+  },
+  {
+    question: "How do we work together, and what's the process?",
+    answer:
+      "It starts with a short conversation about your business and goals — no charge, no pressure. From there I send a fixed quote and timeline; once you're in, I design, you review, and we refine until it's right. You'll always know what's happening and what's next. For Tahoe Teas, a Lake Tahoe ecommerce brand, that meant building their store and then an AI system that drafts on-brand email, blog, and social content tied to Shopify — but the working rhythm is the same whether the project is simple or involved.",
   },
 ];
