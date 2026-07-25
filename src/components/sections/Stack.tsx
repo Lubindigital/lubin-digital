@@ -35,8 +35,8 @@ export function Stack() {
         >
           <MarqueeLogoScroller
             eyebrow="What I build with"
-            title="The tools, and why they are these tools"
-            description="Nothing here got picked because it was trending. Each one earned its place on a real project, and I can tell you what it cost and what it saved."
+            title="The tools we use and why"
+            description="Picked for how they hold up a year after launch. Fewer moving parts means less to break, and less for you to inherit when the project is yours."
             logos={stack}
             speed="normal"
           />
