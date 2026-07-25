@@ -11,7 +11,7 @@ export function CaseStudyNav() {
   return (
     <nav className="fixed inset-x-0 top-0 z-50 border-b border-hairline bg-canvas/85 py-3 backdrop-blur-xl">
       <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="block" aria-label="Lubin Digital — home">
+        <Link href="/" className="block" aria-label="Lubin Digital, home">
           <Image
             src="/lubin-digital-logo-wave.png"
             alt="Lubin Digital"

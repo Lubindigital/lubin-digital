@@ -20,17 +20,17 @@ const steps = [
   {
     n: "01",
     title: "We talk first",
-    body: "A real conversation about what you sell, who you serve, and where the work piles up. No discovery deck, no sales call dressed up as one.",
+    body: "A real conversation about what you sell and where the work piles up. No discovery deck, and no sales call dressed up as one.",
   },
   {
     n: "02",
     title: "I design and build it",
-    body: "The same person handles strategy, design, and the engineering. Nothing gets lost in a handoff because there isn't one.",
+    body: "I draw it, then I code it. Nothing gets lost in the handoff because there isn't one.",
   },
   {
     n: "03",
     title: "You own what ships",
-    body: "A site that loads fast and AI that quietly handles the busywork — yours to keep, with me a text away when you need a change.",
+    body: "It's yours when it ships, not licensed back to you. I'm a text away when you want something changed.",
   },
 ];
 
@@ -52,16 +52,15 @@ export function About() {
           >
             <p className="eyebrow gradient-text mb-6">Who you&apos;re working with</p>
             <p className="text-on-ink-soft text-base leading-[1.7] max-w-[42ch]">
-              Lubin Digital is a one-person studio. When you hire us, you get me —
-              not a rotating cast of account managers, contractors, and a Slack
-              channel where your project quietly stalls.
+              Lubin Digital is one person. Hire me and you get me, not a project
+              manager relaying your notes to a contractor you&apos;ll never meet.
             </p>
 
             {/* On-brand signal motif */}
             <div className="relative mt-8 aspect-[4/3] overflow-hidden rounded-xl border border-hairline-on-ink">
               <Image
                 src="/about-visual.png"
-                alt="Lubin Digital — design and AI engineering"
+                alt="Lubin Digital, design and AI engineering"
                 fill
                 sizes="(max-width: 1024px) 100vw, 420px"
                 className="object-cover"
@@ -94,17 +93,16 @@ export function About() {
             className="max-w-[58ch] space-y-5 text-on-ink-soft text-base leading-[1.75]"
           >
             <p>
-              I design and build websites &mdash; and I build the custom AI
-              systems that run a business&apos;s content, marketing, and the
-              repetitive admin that eats the week. Two practices, one set of
-              hands: strategy, design, and engineering with no handoff in between.
+              I design and build websites. I also build the custom software that
+              handles a business&apos;s content, its marketing, and the admin
+              that quietly eats a day every week. Same person on the strategy,
+              the design, and the code, so nothing gets lost between them.
             </p>
             <p>
-              I work remote-first with clients across the country, so where
-              you&apos;re based has never been the question. Whether the work makes
-              your life easier is. I&apos;ll tell you straight when something
-              isn&apos;t worth building, and I won&apos;t sell you features to pad
-              an invoice.
+              I work remote with clients around the country, so where
+              you&apos;re based has never been the question. Whether the thing is
+              worth building is. I&apos;ll say so when it isn&apos;t, and I
+              won&apos;t pad an invoice with features you don&apos;t need.
             </p>
           </motion.div>
 
@@ -119,13 +117,12 @@ export function About() {
           >
             <p className="eyebrow text-on-ink-soft/70 mb-5">The model</p>
             <p className="font-display text-on-ink text-2xl leading-[1.3] mb-6">
-              One partner — strategy, design, and engineering in the same set of
-              hands.
+              Strategy, design, and code, all in the same set of hands.
             </p>
             <dl className="space-y-3 text-sm">
               {[
                 ["Studio", "Independent, one person"],
-                ["Where", "Remote-first, nationwide"],
+                ["Where", "Remote, clients nationwide"],
                 ["Between us", "No middlemen, no handoffs"],
               ].map(([label, value]) => (
                 <div

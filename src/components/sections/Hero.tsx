@@ -49,8 +49,10 @@ export function Hero() {
               animate="visible"
               className="font-display text-on-ink text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.05] mb-6 text-balance"
             >
-              AI-Driven Web Design{" "}
-              <span className="gradient-text">&amp; Solutions</span>
+              I design websites,{" "}
+              <span className="gradient-text">
+                and build the AI behind them.
+              </span>
             </motion.h1>
 
             <motion.p
@@ -60,10 +62,10 @@ export function Hero() {
               animate="visible"
               className="text-on-ink-soft text-lg leading-[1.6] max-w-[48ch] mb-8"
             >
-              Two practices, one partner. We design and build fast, modern
-              websites &mdash; and we engineer the custom AI systems that automate
-              content, marketing, and operations. Strategy, design, and code, from
-              first sketch to shipped software.
+              Every page drawn and coded by hand. Then the software that runs
+              underneath it: for Tahoe Teas, one idea becomes a week of email,
+              blog posts, and Instagram, waiting on the owner&apos;s phone for a
+              yes.
             </motion.p>
 
             <motion.div
@@ -83,7 +85,7 @@ export function Hero() {
                 href="#portfolio"
                 className="link-underline text-sm font-semibold text-on-ink"
               >
-                See our work &rarr;
+                See the work &rarr;
               </a>
             </motion.div>
 
@@ -95,7 +97,7 @@ export function Hero() {
               animate="visible"
               className="mt-9 border-t border-hairline-on-ink pt-6"
             >
-              <p className="eyebrow text-on-ink-soft/70 mb-3">Selected work</p>
+              <p className="eyebrow text-on-ink-soft/70 mb-3">Worked with</p>
               <div className="flex flex-wrap gap-x-5 gap-y-2">
                 {clients.map((c) => (
                   <span key={c} className="text-sm font-medium text-on-ink-soft">
@@ -128,7 +130,7 @@ export function Hero() {
               </div>
               <Image
                 src="/portfolio/avergent.png"
-                alt="Avergent — a website designed and built by Lubin Digital"
+                alt="Avergent, a website I designed and built"
                 width={1440}
                 height={900}
                 priority

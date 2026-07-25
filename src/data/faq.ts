@@ -7,31 +7,31 @@ export const faqItems: FaqItem[] = [
   {
     question: "How long does a project take?",
     answer:
-      "A focused marketing site usually goes live in about two to three weeks once you've handed over copy, photos, and brand details. The first week is design and structure; the second is building and refining; we use the time after that for revisions and launch. Larger builds or anything with custom AI take longer, and I'll give you a real timeline with milestones before we start — not a vague \"a few weeks.\"",
+      "About two to three weeks for a focused marketing site, counting from the day I have your copy, photos, and brand details. Week one is design and structure. Week two is building. Whatever's left goes to revisions and launch. Bigger builds and anything with custom AI run longer, and you'll get real dates with milestones before we start, not a shrug and \"a few weeks.\"",
   },
   {
     question: "What does it cost, and how do you price?",
     answer:
-      "I quote a fixed price per project, not an hourly rate, so you know the number before we begin and it doesn't move unless the scope does. A typical small-business site lands in the low-to-mid four figures; ecommerce or custom AI work is more, depending on what we're building. Tell me what you need and roughly what you're working with, and I'll send back an honest quote — if your budget and the project don't match, I'll say so.",
+      "Fixed price per project, never hourly. You know the number before we begin and it doesn't move unless the scope does. A typical small business site lands in the low to mid four figures. Ecommerce and custom AI cost more, depending on what we're actually building. Tell me what you need and roughly what you're working with, and I'll send back an honest quote. If your budget and the project don't match, I'll say so instead of stretching one to fit the other.",
   },
   {
     question: "Do I own the site, and can I edit it myself?",
     answer:
-      "Yes — it's yours. You own the code, the domain, and the content, and nothing is locked to me. For most sites I set up a simple editor so you can change text, swap photos, and add pages without touching code or paying me for small tweaks. If you'd rather I handle updates, I offer that too, but it's your choice, not a subscription you're trapped in.",
+      "Yes, it's yours. The code, the domain, the content, none of it is locked to me. For most sites I set up a simple editor so you can change text, swap photos, and add a page without touching code or paying me for ten minutes of work. If you'd rather I handle updates, I'll do that too. It's your call, not a subscription you're stuck in.",
   },
   {
-    question: "You use AI — does that mean my site will look generic?",
+    question: "You use AI. Does that mean my site will look generic?",
     answer:
-      "Fair concern, and the honest answer is no — because of how I use it. I don't paste a site out of a generator and call it done. Design, layout, and the words are decided deliberately for your business; AI mostly does the heavy lifting behind the scenes — drafting first-pass content, automating email and marketing, handling repetitive work. The visible result is custom and reviewed by a human (me). If anything ever feels templated, that's a bug, and we fix it.",
+      "Fair thing to worry about, and the answer is no, because of where the AI actually sits. I don't type a prompt into a generator and hand you what comes out. The layout, the structure, and the words get decided on purpose for your business. The AI does the work behind the scenes: first drafts, automating email and marketing, chewing through repetitive tasks. What you see is custom and reviewed by a person, and that person is me. If anything ever feels templated, that's a bug and I'll fix it.",
   },
   {
     question: "What if I just need a website, not AI?",
     answer:
-      "Then that's what we build. Plenty of clients come to me for a clean, fast, well-made site and nothing more — and that's completely fine. AI is something I add only when it genuinely saves you time or money, never a requirement. A great website on its own is reason enough to work together.",
+      "Then that's what we build. Plenty of my clients want a clean, fast, well made site and nothing else, and that's a completely reasonable thing to want. I add AI when it saves you real time or real money, and I leave it out when it doesn't. A good website is reason enough to work together.",
   },
   {
     question: "How do we work together, and what's the process?",
     answer:
-      "It starts with a short conversation about your business and goals — no charge, no pressure. From there I send a fixed quote and timeline; once you're in, I design, you review, and we refine until it's right. You'll always know what's happening and what's next. For Tahoe Teas, a Lake Tahoe ecommerce brand, that meant building their store and then an AI system that drafts on-brand email, blog, and social content tied to Shopify — but the working rhythm is the same whether the project is simple or involved.",
+      "It starts with a short conversation about your business and where the work piles up. No charge, no pressure. Then I send a fixed quote and a timeline. Once you're in, I design, you review, and we go back and forth until it's right. You'll always know what I'm working on and what comes next. Tahoe Teas is a good example: it started as one email flow replacing Klaviyo and turned into an AI system that drafts email, blog posts, and social tied to Shopify. The rhythm is the same whether the project is simple or complicated.",
   },
 ];

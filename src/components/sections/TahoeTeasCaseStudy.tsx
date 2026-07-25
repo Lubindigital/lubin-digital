@@ -9,7 +9,7 @@ const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 const meta = [
   { label: "Client", value: "Tahoe Teas, Ecommerce" },
   { label: "Role", value: "Design + AI Engineering" },
-  { label: "Engagement", value: "2025 to present" },
+  { label: "Engagement", value: "2026 to present" },
 ];
 
 /* The closed loop — five plain-language stages */
@@ -17,27 +17,27 @@ const loop = [
   {
     step: "01",
     title: "Ideas, ranked",
-    body: "An AI strategist proposes a ranked queue of what to publish next, grounded in empty weeks on the calendar, the Lake Tahoe season, SEO keywords nobody has covered, recent titles, and what's actually converting.",
+    body: "The system reads the empty weeks on the calendar, the season in Tahoe, keywords nobody has covered yet, what went out recently, and what actually sold. Then it hands Tica a ranked list of what to write next.",
   },
   {
     step: "02",
     title: "One click drafts every channel",
-    body: "Pick an idea and the Studio writes email, a Shopify blog post, an Instagram caption, and an SMS in parallel. Each is shaped for its own channel rather than copy-pasted.",
+    body: "Pick an idea. The Studio writes the email, the Shopify blog post, the Instagram caption, and the text at the same time. Each one is written for its own channel instead of the same paragraph pasted four times.",
   },
   {
     step: "03",
     title: "A quality gate before anyone sees it",
-    body: "Each piece is drafted a few ways; a cheaper model judges which is best. A deterministic brand-voice check scores every draft 0 to 100 and strips the giveaway dash before a customer could ever read it.",
+    body: "The email and the blog post each get written more than once, and a smaller, cheaper model picks the better version. Then a brand voice check scores every piece from 0 to 100 and strips the em dash, because nothing says a robot wrote this faster.",
   },
   {
     step: "04",
     title: "The owner approves from her phone",
-    body: "Tica reviews and signs off on each channel through a passwordless share link. She never touches code, and nothing leaves the building without her yes.",
+    body: "Tica gets a link. No password, no login to remember. She reads each channel and signs off on them one at a time, and nothing goes out without her yes.",
   },
   {
     step: "05",
     title: "Publish, then learn",
-    body: "Approved pieces auto-publish on schedule. Opens, clicks, and Shopify discount-code revenue flow back in to shape the next round of ideas.",
+    body: "Approved pieces publish on schedule. Opens, clicks, and revenue from Shopify discount codes flow back in, so the next round of ideas already knows what worked.",
   },
 ];
 
@@ -71,20 +71,20 @@ const roi = [
 /* What makes it trustworthy — honest, plain */
 const principles = [
   {
-    title: "Grounded in its own voice",
-    body: "Every draft is checked against the brand's previously approved copy with pgvector, so new writing sounds like Tahoe Teas, not like a model.",
+    title: "Grounded in their own writing",
+    body: "Copy Tahoe Teas already approved is stored as vectors in Postgres and pulled into the prompt before a word gets written. New writing sounds like them because it's built out of them.",
   },
   {
-    title: "Human in the loop, by design",
-    body: "Nothing publishes without an explicit, per-channel yes from the owner. The AI proposes and drafts; a person decides.",
+    title: "A person decides, every time",
+    body: "The AI proposes and drafts. Tica approves each channel separately, and skipping that step isn't an option the software offers.",
   },
   {
-    title: "Honest about its limits",
-    body: "SMS is built and consent-compliant but waits on carrier approval. Instagram posts images; music needs a manual finish. Facebook was deferred on purpose.",
+    title: "Honest about what it can't do yet",
+    body: "SMS is built and consent compliant, but it's waiting on carrier approval and isn't reaching anyone yet. Instagram publishes images only. Facebook was left out on purpose.",
   },
   {
     title: "Wired into the store",
-    body: "Subscribers, unique discount codes, and published articles sync with Shopify, and revenue from those codes is attributed back to the content that drove it.",
+    body: "Subscribers, discount codes, and published articles all sync with Shopify. When a code gets used, the revenue points back at the piece of content that sent it.",
   },
 ];
 
@@ -149,11 +149,11 @@ export function TahoeTeasCaseStudy() {
             transition={{ duration: 0.7, delay: 0.22, ease }}
             className="text-ink-soft text-lg leading-[1.7] max-w-[62ch] mb-10"
           >
-            Tica and Mike run Tahoe Teas as a family. They have a real voice and
-            real products &mdash; what they didn&apos;t have was the time to
-            re-write the same idea for email, the blog, Instagram, and a text.
-            So we built the software that does it for them, end to end, with Tica
-            approving every word before it ships.
+            Tica and Mike run Tahoe Teas as a family. The products are real and
+            the voice is theirs. What they didn&apos;t have was the time to
+            rewrite the same idea four times over for email, the blog,
+            Instagram, and a text message. So I built the software that does it
+            for them, with Tica approving every word before it goes out.
           </motion.p>
 
           <motion.dl
@@ -208,17 +208,18 @@ export function TahoeTeasCaseStudy() {
               From one email flow to the whole calendar
             </h2>
             <p className="text-ink-soft text-base leading-[1.75] max-w-[60ch] mb-4">
-              The first job was narrow: replace Klaviyo for the welcome flow and
-              the signup popup. We cut that over in May 2026. It worked, and the
-              real problem became obvious &mdash; the welcome email was only one
-              of the four places Tahoe Teas needed to show up every week.
+              The first job was narrow. Replace Klaviyo for the welcome flow and
+              the signup popup, which I cut over in May 2026. It worked, and
+              then the real problem showed up: the welcome email was one of four
+              places Tahoe Teas needed to appear every week, and the other three
+              were still getting written by hand.
             </p>
             <p className="text-ink-soft text-base leading-[1.75] max-w-[60ch]">
-              In June 2026 we rebranded the app from the &ldquo;Email
-              System&rdquo; to the <strong className="text-ink font-medium">Tahoe
-              Teas Content System</strong> and gave it a single job: take one
-              good idea and turn it into a week of on-brand content, without Tica
-              writing any of it from scratch.
+              In June 2026 the app stopped being the &ldquo;Email System&rdquo;
+              and became the <strong className="text-ink font-medium">Tahoe Teas
+              Content System</strong>, with one job: take a good idea and turn
+              it into a week of content that sounds like them, without Tica
+              starting from a blank page.
             </p>
           </motion.div>
 
@@ -255,9 +256,8 @@ export function TahoeTeasCaseStudy() {
               Idea in, published content out, then it learns
             </h2>
             <p className="text-on-ink-soft text-lg leading-[1.6]">
-              The whole system is a closed loop. Each round of publishing feeds
-              the next round of ideas &mdash; so it&apos;s built to get sharper
-              the more it runs.
+              It&apos;s a closed loop. What gets published feeds the next round
+              of ideas, so the system should get sharper the longer it runs.
             </p>
           </motion.div>
 
@@ -312,9 +312,11 @@ export function TahoeTeasCaseStudy() {
               ))}
             </div>
             <p className="mt-4 text-on-ink-soft/80 text-xs leading-relaxed max-w-[60ch]">
-              SMS is built and TCPA-consent-compliant, pending carrier approval
-              (Twilio A2P 10DLC). Instagram posts images; reels with music need a
-              quick manual finish. Facebook cross-posting was deferred on purpose.
+              SMS is built and follows TCPA consent rules. It&apos;s waiting on
+              carrier approval (Twilio A2P 10DLC) and does not deliver yet.
+              Instagram is image only, so reels and anything with licensed music
+              still get posted by hand. Facebook cross posting was deferred on
+              purpose.
             </p>
           </motion.div>
         </div>
@@ -331,7 +333,7 @@ export function TahoeTeasCaseStudy() {
         >
           <p className="eyebrow text-accent mb-4">Why it can be trusted</p>
           <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05]">
-            Automated, but never on autopilot
+            Nothing publishes without a person saying yes
           </h2>
         </motion.div>
 
@@ -385,15 +387,15 @@ export function TahoeTeasCaseStudy() {
                 A two-person shop that publishes like a team
               </h2>
               <p className="text-ink-soft text-base leading-[1.75] max-w-[56ch] mb-4">
-                Instead of staring at a blank calendar, Tica opens a ranked list
-                of ideas that already know what the store needs. One click drafts
-                the week. She reviews it on her phone, approves what she likes,
-                and the rest publishes on schedule.
+                Instead of a blank calendar, Tica opens a ranked list of ideas
+                that already know what the store needs. One click drafts the
+                week. She reads it on her phone, approves what she likes, and
+                the rest goes out on schedule.
               </p>
               <p className="text-ink-soft text-base leading-[1.75] max-w-[56ch]">
-                The brand voice holds steady across every channel because it&apos;s
-                grounded in their own past writing &mdash; not a generic template,
-                and not a tone that drifts from tool to tool.
+                The voice holds steady across all four channels because
+                it&apos;s built on their own past writing. No generic house
+                style, and no drift from one tool to the next.
               </p>
             </motion.div>
           </div>
@@ -444,11 +446,12 @@ export function TahoeTeasCaseStudy() {
           className="mt-12 grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-10 lg:gap-16"
         >
           <p className="text-ink-soft text-base leading-[1.75] max-w-[58ch]">
-            The honest version: a custom build like this pays for itself by
-            retiring a stack of subscriptions and handing Tica back the better
-            part of a workday each week. We&apos;ve kept the numbers deliberately
-            small &mdash; they count only the tools the system replaces and the
-            hours it gives back, with no revenue claims attached.
+            The honest version: a build like this pays for itself by retiring a
+            stack of subscriptions and handing Tica back about a dozen hours a
+            month. I kept the numbers deliberately small. They
+            count only the tools the system replaced and the hours it gave back.
+            No revenue claims, because I don&apos;t have audited numbers and
+            I&apos;m not going to invent them.
           </p>
           <p className="text-ink-soft/80 text-sm leading-[1.7] border-l border-hairline pl-6">
             <span className="eyebrow text-ink-soft block mb-2">
@@ -457,8 +460,9 @@ export function TahoeTeasCaseStudy() {
             Replaced tools: AI writer (~$468/yr), Buffer (~$180/yr), a freelance
             blog/SEO retainer at 2 posts/mo × $150 (~$3,600/yr), and Canva
             (~$120/yr). Reclaimed time: ~12 hrs/mo at a conservative ~$40/hr
-            (~$5,760/yr). The email-sending platform itself is counted at $0
-            &mdash; the brand still needs one. Real benefit is likely higher.
+            (~$5,760/yr). The email platform itself counts as $0, because the
+            brand still needs one either way. The real benefit is probably
+            higher.
           </p>
         </motion.div>
       </section>
@@ -499,9 +503,9 @@ export function TahoeTeasCaseStudy() {
             Doing the same work by hand?
           </h2>
           <p className="text-ink-soft text-lg max-w-[52ch] mx-auto mb-9 leading-[1.6]">
-            Tea, software, or anything in between &mdash; if you keep re-typing
-            the same idea in four places, there&apos;s usually a system worth
-            building. Tell me what&apos;s eating your week.
+            If you keep retyping the same idea in four places, there&apos;s
+            usually a system worth building. Doesn&apos;t matter whether you
+            sell tea or software. Tell me what&apos;s eating your week.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
             <Link

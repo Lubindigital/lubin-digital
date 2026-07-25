@@ -19,47 +19,47 @@ export interface Practice {
 export const practices: Practice[] = [
   {
     number: "01",
-    practice: "AI-Driven Web Design",
+    practice: "Web Design & Build",
     tagline:
-      "Fast, modern sites — designed and built from scratch, never templated.",
+      "Drawn and coded from scratch. No theme, no page builder, no template with your logo dropped in.",
     items: [
       {
-        title: "Design & build from scratch",
+        title: "Design and build",
         description:
-          "I design and code your site in Next.js — fast to load, clean to read, built for SEO, and yours to own.",
+          "I draw the layout, then I write the code. It ships on Next.js, loads fast, reads clean on a phone, and the whole thing belongs to you.",
       },
       {
-        title: "Web development & integrations",
+        title: "Integrations",
         description:
-          "Forms, CMS, payments, booking, analytics — wired into the platforms you already run so the site actually does work.",
+          "Forms, payments, booking, a CMS you can actually use, analytics that tell you something. Wired into whatever you already run, so the site does work instead of sitting there.",
       },
       {
-        title: "Maintain & evolve",
+        title: "After launch",
         description:
-          "Once it's live I keep it quick, fix what breaks, and ship the next feature as your business grows.",
+          "I keep it fast, fix what breaks, and build the next thing when you need it. You text me. There's no ticket queue to route you through.",
       },
     ],
   },
   {
     number: "02",
-    practice: "AI Solutions",
+    practice: "Custom AI Systems",
     tagline:
-      "Custom AI systems that stand on their own — not AI bolted onto a website.",
+      "Software that runs on a schedule and does a job you're currently doing by hand.",
     items: [
       {
-        title: "Custom AI systems",
+        title: "Content and marketing engines",
         description:
-          "Standalone engines like the content & marketing automation I built for Tahoe Teas — turning one idea into email, blog, and social on schedule.",
+          "The Tahoe Teas system takes one idea and drafts the email, the blog post, and the Instagram caption at once. The owner approves each one, then it publishes on schedule.",
       },
       {
-        title: "Internal tools & assistants",
+        title: "Internal tools",
         description:
-          "Assistants and dashboards that draft, sort, answer, and handle the repetitive work your team does by hand today.",
+          "Dashboards and assistants for the work nobody wants: sorting what comes in, drafting the same reply for the hundredth time, keeping two systems agreeing with each other.",
       },
       {
-        title: "Model & data integrations",
+        title: "Wired into your tools",
         description:
-          "AI wired directly into the tools you already use — your CRM, inbox, and docs — so it works where the work happens.",
+          "Your CRM, your inbox, your Shopify store. The AI runs where the work already happens, so nobody has to remember to go use it.",
       },
     ],
   },

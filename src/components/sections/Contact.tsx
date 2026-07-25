@@ -64,9 +64,9 @@ export function Contact() {
               Tell me what you&apos;re trying to build.
             </h2>
             <p className="mt-5 max-w-[42ch] text-lg leading-[1.65] text-on-ink-soft">
-              Send a few sentences about the project and I&apos;ll write back
-              within a day with honest thoughts on how I&apos;d approach it
-              &mdash; no sales call required.
+              Send a few sentences about the project. You&apos;ll get a real
+              reply within a day, with honest thoughts on how I&apos;d approach
+              it. No sales call required.
             </p>
 
             <div className="mt-10 border-t border-hairline-on-ink pt-8">
@@ -195,7 +195,7 @@ export function Contact() {
                   name="message"
                   rows={5}
                   required
-                  placeholder="What does your business do, where does it stand today, and what would make this a win?"
+                  placeholder="What does your business do, what is the site or system supposed to fix, and what would make this a win?"
                   className={`${inputBase} min-h-[120px] resize-y`}
                 />
               </div>
@@ -214,8 +214,7 @@ export function Contact() {
               >
                 {status === "success" && (
                   <span className="text-on-ink-soft">
-                    Thanks &mdash; your message is in. I&apos;ll be in touch
-                    within a day.
+                    Got it. I&apos;ll be in touch within a day.
                   </span>
                 )}
                 {status === "error" && (
@@ -233,7 +232,7 @@ export function Contact() {
                 )}
                 {(status === "idle" || status === "submitting") && (
                   <span className="text-on-ink-soft/70">
-                    No spam, no pressure. A real reply within 24 hours.
+                    No spam, no pressure. A real reply within a day.
                   </span>
                 )}
               </p>

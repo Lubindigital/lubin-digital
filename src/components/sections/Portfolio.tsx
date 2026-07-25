@@ -130,13 +130,12 @@ export function Portfolio() {
           transition={{ duration: 0.6, ease }}
           className="mb-16 max-w-[640px]"
         >
-          <p className="eyebrow text-accent mb-4">Our Work</p>
+          <p className="eyebrow text-accent mb-4">Recent work</p>
           <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] mb-4">
             Selected work
           </h2>
           <p className="text-ink-soft text-lg leading-[1.6]">
-            Two practices, one studio — the custom AI systems we engineer, and
-            the websites we design and build.
+            The AI systems and the websites. Same hands on both.
           </p>
         </motion.div>
 
@@ -144,9 +143,9 @@ export function Portfolio() {
         {aiFeatured && (
           <div className="mb-20 md:mb-24">
             <GroupHeading
-              eyebrow="AI Solutions"
-              title="Systems that do real work"
-              subtitle="Custom AI that stands on its own — content engines, automation, and internal tools, not features bolted onto a page."
+              eyebrow="AI systems"
+              title="Software that runs on its own"
+              subtitle="Content engines, automation, internal tools. These are real applications with their own logins, running on their own schedule."
             />
             <Featured item={aiFeatured} />
           </div>
@@ -156,9 +155,9 @@ export function Portfolio() {
         {webItems.length > 0 && (
           <div>
             <GroupHeading
-              eyebrow="Web Design"
-              title="Sites built to convert"
-              subtitle="Fast, modern, accessible websites — designed, built, and shipped for brands across healthcare, benefits, and beyond."
+              eyebrow="Websites"
+              title="Built from scratch, shipped fast"
+              subtitle="Healthcare, employee benefits, and a designer's portfolio. Four different clients, one standard: it loads fast and it reads clean on a phone."
             />
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
               {webItems.map((item, i) => (

@@ -30,11 +30,11 @@ const SITE_URL = "https://lubindigital.com";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Lubin Digital — Premium Websites & Custom AI Systems",
+    default: "Lubin Digital: Web Design and Custom AI Systems",
     template: "%s | Lubin Digital",
   },
   description:
-    "Lubin Digital is an independent studio building premium, hand-crafted websites and the custom AI systems that run behind them — content automation, marketing, and integrations. One partner, design to deployment.",
+    "A one person studio. I design and code websites from scratch, and build the custom AI systems that run content, marketing, and the repetitive work behind them.",
   keywords: [
     "web design studio",
     "custom AI systems",
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Lubin Digital — Premium Websites & Custom AI Systems",
+    title: "Lubin Digital: Web Design and Custom AI Systems",
     description:
-      "An independent studio building premium websites and the custom AI systems behind them. One partner, design to deployment.",
+      "A one person studio. I design and code websites, and build the custom AI systems that run behind them.",
     type: "website",
     locale: "en_US",
     url: SITE_URL,
@@ -59,9 +59,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lubin Digital — Premium Websites & Custom AI Systems",
+    title: "Lubin Digital: Web Design and Custom AI Systems",
     description:
-      "An independent studio building premium websites and the custom AI systems behind them.",
+      "A one person studio. I design and code websites, and build the custom AI systems that run behind them.",
     images: ["/og.png"],
   },
 };
@@ -78,7 +78,7 @@ const jsonLd = {
       email: "westan@lubindigital.com",
       telephone: "+15303864145",
       description:
-        "Independent studio building premium websites and custom AI systems — content & marketing automation and integrations.",
+        "A one person studio building websites and custom AI systems for content, marketing, and operations.",
       areaServed: "US",
       knowsAbout: [
         "Web design",

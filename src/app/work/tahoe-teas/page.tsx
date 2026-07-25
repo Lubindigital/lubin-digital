@@ -8,26 +8,26 @@ const OG_IMAGE = {
   url: "/og.png",
   width: 1200,
   height: 630,
-  alt: "Tahoe Teas — AI Content System by Lubin Digital",
+  alt: "The Tahoe Teas AI Content System, built by Lubin Digital",
 };
 const DESCRIPTION =
-  "Case study: Lubin Digital built the Tahoe Teas Content System — a closed-loop AI platform for a family-run Lake Tahoe tea brand. An AI strategist ranks ideas, one click drafts email, blog, Instagram, and SMS, a brand-voice gate guards every word, and the owner approves each channel before it auto-publishes via Shopify.";
+  "How the Tahoe Teas Content System works. An AI strategist ranks what to publish next, one click drafts the email, blog post, and Instagram caption, a brand voice check scores every draft, and the owner approves every channel before anything reaches a customer.";
 
 export const metadata: Metadata = {
-  title: "Tahoe Teas — AI Content System",
+  title: "Tahoe Teas: An AI Content System",
   description: DESCRIPTION,
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: "Tahoe Teas — A Closed-Loop AI Content System",
+    title: "Tahoe Teas: A Closed Loop AI Content System",
     description:
-      "How we built a closed-loop AI content operations platform for a Lake Tahoe tea brand: ranked ideas in, on-brand email, blog, Instagram, and SMS out — human-approved and wired into Shopify.",
+      "How I built a closed loop content system for a Lake Tahoe tea brand. Ranked ideas go in. Email, blog posts, and Instagram go out, approved by the owner and wired into Shopify. SMS is built and waiting on carrier approval.",
     type: "article",
     url: PAGE_URL,
     images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tahoe Teas — A Closed-Loop AI Content System",
+    title: "Tahoe Teas: A Closed Loop AI Content System",
     description: DESCRIPTION,
     images: [OG_IMAGE],
   },

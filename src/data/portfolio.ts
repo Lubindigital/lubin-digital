@@ -21,7 +21,7 @@ export const portfolioItems: PortfolioItem[] = [
     name: "Tahoe Teas",
     category: "AI Content System · Ecommerce",
     description:
-      "An AI content engine that turns one idea into on-brand email, blog, Instagram, and SMS — quality-checked, human-approved, auto-published, and wired into Shopify.",
+      "One idea goes in. Out comes an email, a blog post, and an Instagram caption, each one grounded in the brand's own writing and approved by the owner before it goes live. A text gets drafted too, waiting on carrier approval.",
     image: "/portfolio/tahoe-teas.jpg",
     group: "ai",
     caseStudyPath: "/work/tahoe-teas",
@@ -33,7 +33,7 @@ export const portfolioItems: PortfolioItem[] = [
     name: "ReForm Health Alliance",
     category: "Brand & Website · Healthcare",
     description:
-      "Brand, website, and SEO for a Nevada employer coalition reshaping how healthcare is bought and delivered.",
+      "Brand, website, and SEO for a Nevada employer coalition changing how companies buy healthcare.",
     image: "/portfolio/reformnv.png",
     group: "web",
     url: "https://reformnv.org",
@@ -43,7 +43,7 @@ export const portfolioItems: PortfolioItem[] = [
     name: "Avergent",
     category: "Website & Brand · Benefits",
     description:
-      "A multi-page marketing site and brand system for a benefits firm rebuilding the health plan from the ground up.",
+      "A marketing site and brand system for a benefits firm rebuilding what a health plan looks like.",
     image: "/portfolio/avergent.png",
     group: "web",
     url: "https://www.avergent.com",
@@ -53,7 +53,7 @@ export const portfolioItems: PortfolioItem[] = [
     name: "NVHPHP",
     category: "Landing Page · Healthcare",
     description:
-      "An editorial launch page for Nevada's first High-Performing Health Plan initiative, with an embedded inquiry form.",
+      "A launch page for Nevada's first High-Performing Health Plan initiative, with the inquiry form built right in.",
     image: "/portfolio/nvhphp.png",
     group: "web",
     url: "https://nvhphp.health",
@@ -63,7 +63,7 @@ export const portfolioItems: PortfolioItem[] = [
     name: "Tica Lubin",
     category: "Portfolio · Personal Brand",
     description:
-      "A quiet, type-led editorial portfolio for a designer and sustainability professional — built and deployed on Vercel.",
+      "A quiet, type-led portfolio for a designer working in sustainability. Mostly white space and good type.",
     image: "/portfolio/ticalubin.png",
     group: "web",
     url: "https://ticalubin.com",

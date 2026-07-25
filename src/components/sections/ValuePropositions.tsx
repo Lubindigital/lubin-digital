@@ -16,13 +16,12 @@ export function ValuePropositions() {
           transition={{ duration: 0.6, ease }}
           className="max-w-[640px]"
         >
-          <p className="eyebrow text-accent mb-4">Why work with us</p>
+          <p className="eyebrow text-accent mb-4">Why work with me</p>
           <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] mb-4">
-            A few honest reasons to pick us
+            A few honest reasons to hire me
           </h2>
           <p className="text-ink-soft text-lg leading-[1.6] max-w-[58ch]">
-            Plenty of studios promise the world. Here is what actually sets a
-            project with me apart — said plainly, no buzzwords.
+            Three things I would want to know if I were the one doing the hiring.
           </p>
         </motion.div>
 

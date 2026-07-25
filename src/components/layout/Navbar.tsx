@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
-import { NAV_LINKS, CTA_PRIMARY, CTA_SECONDARY } from "@/lib/constants";
+import { NAV_LINKS, CTA_PRIMARY } from "@/lib/constants";
 
 const focusRing =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-ink-bg rounded-sm";
@@ -60,7 +60,7 @@ export function Navbar() {
           href="#hero"
           className={`block ${focusRing}`}
           onClick={(e) => handleLinkClick(e, "#hero")}
-          aria-label="Lubin Digital — home"
+          aria-label="Lubin Digital, home"
         >
           <Image
             src="/lubin-digital-logo-wave.png"
@@ -90,13 +90,6 @@ export function Navbar() {
             ))}
           </ul>
           <div className="flex items-center gap-3">
-            <a
-              href={CTA_SECONDARY.href}
-              onClick={(e) => handleLinkClick(e, CTA_SECONDARY.href)}
-              className={`rounded-md border border-white/20 px-5 py-2 text-sm font-semibold text-on-ink transition-colors hover:border-white/40 hover:bg-white/5 ${focusRing}`}
-            >
-              {CTA_SECONDARY.label}
-            </a>
             <a
               href={CTA_PRIMARY.href}
               onClick={(e) => handleLinkClick(e, CTA_PRIMARY.href)}
@@ -168,15 +161,6 @@ export function Navbar() {
                   </li>
                 ))}
                 <li className="mt-5">
-                  <a
-                    href={CTA_SECONDARY.href}
-                    onClick={(e) => handleLinkClick(e, CTA_SECONDARY.href)}
-                    className={`block rounded-md border border-white/20 px-5 py-3 text-center font-semibold text-on-ink ${focusRing}`}
-                  >
-                    {CTA_SECONDARY.label}
-                  </a>
-                </li>
-                <li className="mt-3">
                   <a
                     href={CTA_PRIMARY.href}
                     onClick={(e) => handleLinkClick(e, CTA_PRIMARY.href)}

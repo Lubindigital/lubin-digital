@@ -17,14 +17,15 @@ export function Services() {
           transition={{ duration: 0.6, ease }}
           className="mb-16 max-w-[640px] md:mb-20"
         >
-          <p className="eyebrow text-accent mb-4">What we do</p>
+          <p className="eyebrow text-accent mb-4">What I do</p>
           <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05]">
-            Two practices. One partner.
+            Two things, and I do both myself.
           </h2>
           <p className="mt-5 text-ink-soft text-lg leading-[1.6] max-w-[54ch]">
-            We do two things, and we do both for real: we design and build modern
-            websites, and we engineer custom AI systems that run on their own.
-            Hire us for one, or the whole arc.
+            Some clients want a website and nothing else. Some want software that
+            handles their content or their admin work. A few want both, and those
+            are my favorite projects, because the site and the system get
+            designed together instead of bolted on to each other later.
           </p>
         </motion.div>
 
