@@ -226,3 +226,58 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Stack marquee ──────────────────────────────────────────────
+   Track is rendered twice in the DOM and translated -50%, so the
+   loop is seamless. Duration comes from the component via
+   --marquee-duration. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee var(--marquee-duration, 52s) linear infinite;
+  will-change: transform;
+}
+
+/* Pause anywhere in the band, not just on the moving row itself. */
+.marquee-mask:hover .marquee-track,
+.marquee-mask:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Fade the row out at both edges instead of hard-clipping it. */
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+
+/* The global reduced-motion block above zeroes animation-duration but not
+   animation-name, which would land the track on its -50% end state. Kill the
+   animation outright and let the row scroll by hand instead. */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+    transform: none !important;
+  }
+  .marquee-mask {
+    overflow-x: auto;
+  }
+}

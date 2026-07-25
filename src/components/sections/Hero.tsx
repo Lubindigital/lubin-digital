@@ -49,9 +49,9 @@ export function Hero() {
               animate="visible"
               className="font-display text-on-ink text-[clamp(2.5rem,6vw,4.5rem)] leading-[1.05] mb-6 text-balance"
             >
-              I design websites,{" "}
+              A site you own,{" "}
               <span className="gradient-text">
-                and build the AI behind them.
+                and software that does the busywork.
               </span>
             </motion.h1>
 
@@ -62,10 +62,10 @@ export function Hero() {
               animate="visible"
               className="text-on-ink-soft text-lg leading-[1.6] max-w-[48ch] mb-8"
             >
-              Every page drawn and coded by hand. Then the software that runs
-              underneath it: for Tahoe Teas, one idea becomes a week of email,
-              blog posts, and Instagram, waiting on the owner&apos;s phone for a
-              yes.
+              Websites designed and coded from scratch, plus the custom AI that
+              runs behind them. For Tahoe Teas that means one idea becoming a
+              week of email, blog posts, and Instagram, waiting on her phone for
+              a yes.
             </motion.p>
 
             <motion.div
