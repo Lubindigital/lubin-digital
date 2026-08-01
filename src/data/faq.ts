@@ -34,4 +34,9 @@ export const faqItems: FaqItem[] = [
     answer:
       "It starts with a short conversation about your business and where the work piles up. No charge, no pressure. Then I send a fixed quote and a timeline. Once you're in, I design, you review, and we go back and forth until it's right. You'll always know what I'm working on and what comes next. Tahoe Teas is a good example: it started as one email flow replacing Klaviyo and turned into an AI system that drafts email, blog posts, and social tied to Shopify. The rhythm is the same whether the project is simple or complicated.",
   },
+  {
+    question: "Will Google — and AI tools like ChatGPT — actually find my site?",
+    answer:
+      "Yes. Search is splitting in two: some people still Google you, but a growing number ask ChatGPT or Perplexity and never see a list of links at all. If your site isn't built for that second group, you don't exist to them, no matter how good the site looks. Every site I build ships with the basics most small business sites skip: a sitemap, FAQ markup search engines and AI tools can read directly, and a robots.txt that lets those crawlers in instead of locking them out by default. I also help you claim and clean up your Google Business Profile at launch. None of it costs extra. It's just how I build a site.",
+  },
 ];

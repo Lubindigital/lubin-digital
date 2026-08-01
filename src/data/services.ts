@@ -38,6 +38,11 @@ export const practices: Practice[] = [
         description:
           "I keep it fast, fix what breaks, and build the next thing when you need it. You text me. There's no ticket queue to route you through.",
       },
+      {
+        title: "Findable by default",
+        description:
+          "More people ask ChatGPT before they Google. Every site ships with FAQ schema search engines can read straight off the page, a sitemap, and a robots.txt that welcomes AI answer engines instead of blocking them. Thryv and Hibu sell this as an upgrade. It's already in your price with me.",
+      },
     ],
   },
   {
