@@ -37,6 +37,6 @@ export const faqItems: FaqItem[] = [
   {
     question: "Will Google — and AI tools like ChatGPT — actually find my site?",
     answer:
-      "Yes. Search is splitting in two: some people still Google you, but a growing number ask ChatGPT or Perplexity and never see a list of links at all. If your site isn't built for that second group, you don't exist to them, no matter how good the site looks. Every site I build ships with the basics most small business sites skip: a sitemap, FAQ markup search engines and AI tools can read directly, and a robots.txt that lets those crawlers in instead of locking them out by default. I also help you claim and clean up your Google Business Profile at launch. None of it costs extra. It's just how I build a site.",
+      "Yes. Search is splitting in two: some people still Google you, but a growing number ask ChatGPT or Perplexity and never see a list of links at all. If your site isn't built for that second group, you don't exist to them, no matter how good the site looks. Every site I build ships with the basics most small business sites skip: a sitemap, FAQ markup search engines and AI tools can read directly, and a robots.txt that lets those crawlers in instead of locking them out by default. That part is just how I build a site. Your Google Business Profile is the other half of it, and for a local business it's what people see before they ever reach your website. That's its own piece of work, and I'll tell you straight whether yours needs any.",
   },
 ];
