@@ -87,7 +87,7 @@ function WorkCard({ item, index }: { item: PortfolioItem; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
       transition={{ duration: 0.55, delay: (index % 2) * 0.08, ease }}
-      className="group flex h-full flex-col overflow-hidden rounded-xl border border-hairline bg-white transition-colors duration-300 hover:border-accent/50 focus-visible:outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas-2"
+      className="group flex w-full flex-col overflow-hidden rounded-xl border border-hairline bg-white transition-colors duration-300 hover:border-accent/50 focus-visible:outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/50 focus-visible:ring-offset-2 focus-visible:ring-offset-canvas-2 sm:w-[calc(50%-1rem)]"
     >
       <div className="relative aspect-[16/10] overflow-hidden">
         <Image
@@ -156,10 +156,12 @@ export function Portfolio() {
           <div>
             <GroupHeading
               eyebrow="Websites"
-              title="Built from scratch, shipped fast"
-              subtitle="Healthcare, employee benefits, and a designer's portfolio. Four different clients, one standard: it loads fast and it reads clean on a phone."
+              title="Built to order, shipped fast"
+              subtitle="Ecommerce, healthcare, employee benefits, and a designer's portfolio. Five different clients, one standard: it loads fast and it reads clean on a phone."
             />
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+            {/* Centred flex, not a grid: an odd card count centres on the axis
+                instead of hanging left in an orphan row. */}
+            <div className="flex flex-wrap justify-center gap-8">
               {webItems.map((item, i) => (
                 <WorkCard key={item.name} item={item} index={i} />
               ))}

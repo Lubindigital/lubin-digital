@@ -30,6 +30,16 @@ export const portfolioItems: PortfolioItem[] = [
     featured: true,
   },
   {
+    name: "Tahoe Teas Storefront",
+    category: "Ecommerce · Shopify",
+    description:
+      "A Shopify storefront for a family-run tea company in Tahoe City, rebuilt around their own brand and photos.",
+    image: "/portfolio/tahoe-teas-site.jpg",
+    group: "web",
+    url: "https://tahoeteas.com",
+    displayUrl: "tahoeteas.com",
+  },
+  {
     name: "ReForm Health Alliance",
     category: "Brand & Website · Healthcare",
     description:
