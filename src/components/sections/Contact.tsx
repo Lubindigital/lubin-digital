@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import { Mail, Phone } from "lucide-react";
-import { CONTACT, FORMSPREE_ACTION } from "@/lib/constants";
+import { CONTACT } from "@/lib/constants";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -24,6 +24,13 @@ function RequiredMark() {
 
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
+  // Stamped on mount so the endpoint can reject anything submitted faster than
+  // a person could read the form. Set in an effect rather than during render,
+  // which would be an impure call.
+  const loadedAt = useRef(0);
+  useEffect(() => {
+    loadedAt.current = Date.now();
+  }, []);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -32,12 +39,25 @@ export function Contact() {
 
     setStatus("submitting");
     try {
-      const res = await fetch(FORMSPREE_ACTION, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          email: data.get("email"),
+          business: data.get("business"),
+          service: data.get("service"),
+          message: data.get("message"),
+          fax: data.get("fax"),
+          // Fails open if the effect somehow hasn't run: a real person must
+          // never be blocked by the spam trap.
+          elapsed: loadedAt.current
+            ? Math.round((Date.now() - loadedAt.current) / 1000)
+            : 999,
+        }),
       });
-      if (res.ok) {
+      const json = await res.json().catch(() => ({}));
+      if (res.ok && json.ok) {
         setStatus("success");
         form.reset();
       } else {
@@ -197,6 +217,25 @@ export function Contact() {
                   required
                   placeholder="What does your business do, what is the site or system supposed to fix, and what would make this a win?"
                   className={`${inputBase} min-h-[120px] resize-y`}
+                />
+              </div>
+
+              {/* Honeypot. Off-screen rather than display:none, because plenty
+                  of bots skip hidden fields but fill positioned ones. Named
+                  `fax` so browser autofill never touches it — a hidden field
+                  called `company` would collide with the Business field above
+                  and silently discard real enquiries. */}
+              <div
+                aria-hidden="true"
+                className="absolute left-[-9999px] h-px w-px overflow-hidden"
+              >
+                <label htmlFor="fax">Fax</label>
+                <input
+                  type="text"
+                  id="fax"
+                  name="fax"
+                  tabIndex={-1}
+                  autoComplete="off"
                 />
               </div>
 

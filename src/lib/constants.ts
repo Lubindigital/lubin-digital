@@ -14,5 +14,3 @@ export const NAV_LINKS = [
 ] as const;
 
 export const CTA_PRIMARY = { label: "Let's talk", href: "#contact" } as const;
-
-export const FORMSPREE_ACTION = "https://formspree.io/f/mykbvynk";
