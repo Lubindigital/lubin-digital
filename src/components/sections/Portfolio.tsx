@@ -157,7 +157,7 @@ export function Portfolio() {
             <GroupHeading
               eyebrow="Websites"
               title="Built to order, shipped fast"
-              subtitle="Ecommerce, healthcare, employee benefits, and a designer's portfolio. Five different clients, one standard: it loads fast and it reads clean on a phone."
+              subtitle="Ecommerce, home services, healthcare, employee benefits, and a designer's portfolio. Six different clients, one standard: it loads fast and it reads clean on a phone."
             />
             {/* Centred flex, not a grid: an odd card count centres on the axis
                 instead of hanging left in an orphan row. */}

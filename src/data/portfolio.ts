@@ -40,6 +40,16 @@ export const portfolioItems: PortfolioItem[] = [
     displayUrl: "tahoeteas.com",
   },
   {
+    name: "Kauai Maintenance",
+    category: "Website & Local SEO · Contracting",
+    description:
+      "A site for a licensed contractor and plumber on Kauai since 1986, built from their own job photos and reviews.",
+    image: "/portfolio/kauai-maintenance.png",
+    group: "web",
+    url: "https://kauaimaintenance.com",
+    displayUrl: "kauaimaintenance.com",
+  },
+  {
     name: "ReForm Health Alliance",
     category: "Brand & Website · Healthcare",
     description:
