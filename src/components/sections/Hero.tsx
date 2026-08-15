@@ -2,8 +2,15 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
+import { portfolioItems } from "@/data/portfolio";
 
 const ease = [0.22, 1, 0.36, 1] as const;
+
+/* Read the showcase shot out of the portfolio data rather than hardcoding the
+   path. Thumbnails are content-addressed and rewritten by
+   scripts/shoot-portfolio.mjs, so a hardcoded filename here goes 404 the first
+   time that client's site changes. */
+const showcase = portfolioItems.find((i) => i.displayUrl === "avergent.com");
 
 const fade = {
   hidden: { opacity: 0, y: 16 },
@@ -125,11 +132,11 @@ export function Hero() {
               <div className="flex items-center gap-2 border-b border-hairline-on-ink px-4 py-2.5">
                 <span className="h-1.5 w-1.5 rounded-full bg-white/20" />
                 <span className="mx-auto rounded-full bg-white/[0.06] px-3 py-0.5 font-mono text-[0.65rem] text-on-ink-soft">
-                  avergent.com
+                  {showcase?.displayUrl ?? "avergent.com"}
                 </span>
               </div>
               <Image
-                src="/portfolio/avergent.png"
+                src={showcase?.image ?? "/portfolio/avergent.png"}
                 alt="Avergent, a website I designed and built"
                 width={1440}
                 height={900}
