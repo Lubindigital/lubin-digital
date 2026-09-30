@@ -50,6 +50,16 @@ export const portfolioItems: PortfolioItem[] = [
     displayUrl: "kauaimaintenance.com",
   },
   {
+    name: "My Friend Does Weddings",
+    category: "Website · Wedding Planning",
+    description:
+      "A site for Anthony and Lindsey, who plan and run weddings on Oʻahu, with their prices right up front.",
+    image: "/portfolio/myfrienddoesweddings.b0ec31ee.png",
+    group: "web",
+    url: "https://myfrienddoesweddings.com",
+    displayUrl: "myfrienddoesweddings.com",
+  },
+  {
     name: "ReForm Health Alliance",
     category: "Brand & Website · Healthcare",
     description:
