@@ -70,9 +70,7 @@ export function Hero() {
               className="text-on-ink-soft text-lg leading-[1.6] max-w-[48ch] mb-8"
             >
               Websites designed and coded from scratch, plus the custom AI that
-              runs behind them. For Tahoe Teas that means one idea becoming a
-              week of email, blog posts, and Instagram, waiting on her phone for
-              a yes.
+              runs behind them.
             </motion.p>
 
             <motion.div

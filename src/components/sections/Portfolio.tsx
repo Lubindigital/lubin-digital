@@ -17,7 +17,7 @@ function GroupHeading({
 }: {
   eyebrow: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
 }) {
   return (
     <motion.div
@@ -31,7 +31,7 @@ function GroupHeading({
       <h3 className="font-display text-2xl md:text-3xl text-ink leading-[1.1] mb-2">
         {title}
       </h3>
-      <p className="text-ink-soft leading-[1.6]">{subtitle}</p>
+      {subtitle && <p className="text-ink-soft leading-[1.6]">{subtitle}</p>}
     </motion.div>
   );
 }
@@ -66,6 +66,21 @@ function Featured({ item }: { item: PortfolioItem }) {
         <p className="text-ink-soft leading-[1.7] max-w-[46ch] mb-7">
           {item.description}
         </p>
+        {item.metrics && (
+          <dl className="mb-8 grid grid-cols-3 border-y border-hairline">
+            {item.metrics.map((m, i) => (
+              <div
+                key={m.label}
+                className={`flex flex-col-reverse ${i > 0 ? "border-l border-hairline py-4 pl-4" : "py-4 pr-4"}`}
+              >
+                <dt className="mt-1.5 eyebrow text-ink-soft/80">{m.label}</dt>
+                <dd className="font-display tnum text-xl md:text-2xl text-accent leading-none">
+                  {m.figure}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        )}
         <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-ink">
           {item.ctaLabel ?? "Read the case study"}
           <ArrowRight className="h-4 w-4 text-accent transition-transform duration-300 group-hover:translate-x-1" />
@@ -131,12 +146,9 @@ export function Portfolio() {
           className="mb-16 max-w-[640px]"
         >
           <p className="eyebrow text-accent mb-4">Recent work</p>
-          <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] mb-4">
+          <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05]">
             Selected work
           </h2>
-          <p className="text-ink-soft text-lg leading-[1.6]">
-            The AI systems and the websites. Same hands on both.
-          </p>
         </motion.div>
 
         {/* ── (A) AI Solutions ───────────────────────────── */}
@@ -145,7 +157,6 @@ export function Portfolio() {
             <GroupHeading
               eyebrow="AI systems"
               title="Software that runs on its own"
-              subtitle="Content engines, automation, internal tools. These are real applications with their own logins, running on their own schedule."
             />
             <Featured item={aiFeatured} />
           </div>
@@ -157,7 +168,7 @@ export function Portfolio() {
             <GroupHeading
               eyebrow="Websites"
               title="Built to order, shipped fast"
-              subtitle="Ecommerce, home services, healthcare, employee benefits, weddings, and a designer's portfolio. Seven different clients, one standard: it loads fast and it reads clean on a phone."
+              subtitle="Eight clients. Fast and clean on any phone."
             />
             {/* Centred flex, not a grid: an odd card count centres on the axis
                 instead of hanging left in an orphan row. */}

@@ -17,27 +17,27 @@ const loop = [
   {
     step: "01",
     title: "Ideas, ranked",
-    body: "The system reads the empty weeks on the calendar, the season in Tahoe, keywords nobody has covered yet, what went out recently, and what actually sold. Then it hands Tica a ranked list of what to write next.",
+    body: "It reads the calendar, the season, open keywords, and what sold, then ranks what to write next.",
   },
   {
     step: "02",
     title: "One click drafts every channel",
-    body: "Pick an idea. The Studio writes the email, the Shopify blog post, the Instagram caption, and the text at the same time. Each one is written for its own channel instead of the same paragraph pasted four times.",
+    body: "Email, blog post, caption, and text, each written for its own channel.",
   },
   {
     step: "03",
     title: "A quality gate before anyone sees it",
-    body: "The email and the blog post each get written more than once, and a smaller, cheaper model picks the better version. Then a brand voice check scores every piece from 0 to 100 and strips the em dash, because nothing says a robot wrote this faster.",
+    body: "Drafts compete, and a brand voice check scores every piece 0 to 100.",
   },
   {
     step: "04",
     title: "The owner approves from her phone",
-    body: "Tica gets a link. No password, no login to remember. She reads each channel and signs off on them one at a time, and nothing goes out without her yes.",
+    body: "One link, no login. Nothing goes out without her yes.",
   },
   {
     step: "05",
     title: "Publish, then learn",
-    body: "Approved pieces publish on schedule. Opens, clicks, and revenue from Shopify discount codes flow back in, so the next round of ideas already knows what worked.",
+    body: "Opens, clicks, and Shopify revenue feed the next round of ideas.",
   },
 ];
 
@@ -54,17 +54,14 @@ const roi = [
   {
     figure: "$4,400/yr",
     label: "Subscriptions replaced",
-    sub: "AI writer, social scheduler, blog retainer, design tool",
   },
   {
     figure: "~12 hrs/mo",
     label: "Owner time reclaimed",
-    sub: "Writing & scheduling, valued at ~$40/hr",
   },
   {
     figure: "~$10,100/yr",
     label: "Estimated total savings",
-    sub: "Avoided tools plus reclaimed labor",
   },
 ];
 
@@ -72,19 +69,19 @@ const roi = [
 const principles = [
   {
     title: "Grounded in their own writing",
-    body: "Copy Tahoe Teas already approved is stored as vectors in Postgres and pulled into the prompt before a word gets written. New writing sounds like them because it's built out of them.",
+    body: "New copy is built from copy they already approved.",
   },
   {
     title: "A person decides, every time",
-    body: "The AI proposes and drafts. Tica approves each channel separately, and skipping that step isn't an option the software offers.",
+    body: "Tica approves each channel. There's no skip button.",
   },
   {
     title: "Honest about what it can't do yet",
-    body: "SMS is built and consent compliant, but it's waiting on carrier approval and isn't reaching anyone yet. Instagram publishes images only. Facebook was left out on purpose.",
+    body: "SMS awaits carrier approval. Facebook is left out on purpose.",
   },
   {
     title: "Wired into the store",
-    body: "Subscribers, discount codes, and published articles all sync with Shopify. When a code gets used, the revenue points back at the piece of content that sent it.",
+    body: "Discount codes tie Shopify revenue back to the post that earned it.",
   },
 ];
 
@@ -149,11 +146,9 @@ export function TahoeTeasCaseStudy() {
             transition={{ duration: 0.7, delay: 0.22, ease }}
             className="text-ink-soft text-lg leading-[1.7] max-w-[62ch] mb-10"
           >
-            Tica and Mike run Tahoe Teas as a family. The products are real and
-            the voice is theirs. What they didn&apos;t have was the time to
-            rewrite the same idea four times over for email, the blog,
-            Instagram, and a text message. So I built the software that does it
-            for them, with Tica approving every word before it goes out.
+            Tica and Mike run Tahoe Teas as a family. I built the software that
+            turns one idea into an email, a blog post, an Instagram post, and a
+            text, with Tica approving every word.
           </motion.p>
 
           <motion.dl
@@ -207,19 +202,9 @@ export function TahoeTeasCaseStudy() {
             <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] mb-6">
               From one email flow to the whole calendar
             </h2>
-            <p className="text-ink-soft text-base leading-[1.75] max-w-[60ch] mb-4">
-              The first job was narrow. Replace Klaviyo for the welcome flow and
-              the signup popup, which I cut over in May 2026. It worked, and
-              then the real problem showed up: the welcome email was one of four
-              places Tahoe Teas needed to appear every week, and the other three
-              were still getting written by hand.
-            </p>
-            <p className="text-ink-soft text-base leading-[1.75] max-w-[60ch]">
-              In June 2026 the app stopped being the &ldquo;Email System&rdquo;
-              and became the <strong className="text-ink font-medium">Tahoe Teas
-              Content System</strong>, with one job: take a good idea and turn
-              it into a week of content that sounds like them, without Tica
-              starting from a blank page.
+            <p className="text-ink-soft text-lg leading-[1.7] max-w-[46ch]">
+              It started in May 2026 as a Klaviyo replacement for one welcome
+              flow. By June it was writing all four channels every week.
             </p>
           </motion.div>
 
@@ -252,13 +237,9 @@ export function TahoeTeasCaseStudy() {
             className="mb-14 max-w-[640px]"
           >
             <p className="eyebrow text-accent mb-4">The loop</p>
-            <h2 className="font-display text-4xl md:text-5xl text-on-ink leading-[1.05] mb-4">
+            <h2 className="font-display text-4xl md:text-5xl text-on-ink leading-[1.05]">
               Idea in, published content out, then it learns
             </h2>
-            <p className="text-on-ink-soft text-lg leading-[1.6]">
-              It&apos;s a closed loop. What gets published feeds the next round
-              of ideas, so the system should get sharper the longer it runs.
-            </p>
           </motion.div>
 
           {/* Five stages as a numbered hairline list */}
@@ -312,11 +293,8 @@ export function TahoeTeasCaseStudy() {
               ))}
             </div>
             <p className="mt-4 text-on-ink-soft/80 text-xs leading-relaxed max-w-[60ch]">
-              SMS is built and follows TCPA consent rules. It&apos;s waiting on
-              carrier approval (Twilio A2P 10DLC) and does not deliver yet.
-              Instagram is image only, so reels and anything with licensed music
-              still get posted by hand. Facebook cross posting was deferred on
-              purpose.
+              SMS is waiting on carrier approval. Instagram is images only; reels
+              are still posted by hand.
             </p>
           </motion.div>
         </div>
@@ -386,16 +364,10 @@ export function TahoeTeasCaseStudy() {
               <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] mb-6">
                 A two-person shop that publishes like a team
               </h2>
-              <p className="text-ink-soft text-base leading-[1.75] max-w-[56ch] mb-4">
-                Instead of a blank calendar, Tica opens a ranked list of ideas
-                that already know what the store needs. One click drafts the
-                week. She reads it on her phone, approves what she likes, and
-                the rest goes out on schedule.
-              </p>
-              <p className="text-ink-soft text-base leading-[1.75] max-w-[56ch]">
-                The voice holds steady across all four channels because
-                it&apos;s built on their own past writing. No generic house
-                style, and no drift from one tool to the next.
+              <p className="text-ink-soft text-lg leading-[1.7] max-w-[46ch]">
+                Tica opens a ranked list, drafts the week in one click, and
+                approves it from her phone. The voice holds across all four
+                channels.
               </p>
             </motion.div>
           </div>
@@ -430,10 +402,7 @@ export function TahoeTeasCaseStudy() {
               <p className="font-display tnum text-accent text-5xl md:text-6xl leading-none mb-4">
                 {r.figure}
               </p>
-              <p className="eyebrow text-ink mb-2">{r.label}</p>
-              <p className="text-ink-soft text-sm leading-[1.6] max-w-[28ch]">
-                {r.sub}
-              </p>
+              <p className="eyebrow text-ink">{r.label}</p>
             </motion.div>
           ))}
         </div>
@@ -446,23 +415,15 @@ export function TahoeTeasCaseStudy() {
           className="mt-12 grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-10 lg:gap-16"
         >
           <p className="text-ink-soft text-base leading-[1.75] max-w-[58ch]">
-            The honest version: a build like this pays for itself by retiring a
-            stack of subscriptions and handing Tica back about a dozen hours a
-            month. I kept the numbers deliberately small. They
-            count only the tools the system replaced and the hours it gave back.
-            No revenue claims, because I don&apos;t have audited numbers and
-            I&apos;m not going to invent them.
+            Only replaced tools and reclaimed hours. No revenue claims I
+            can&apos;t back up.
           </p>
           <p className="text-ink-soft/80 text-sm leading-[1.7] border-l border-hairline pl-6">
             <span className="eyebrow text-ink-soft block mb-2">
-              Assumptions
+              How I counted
             </span>
-            Replaced tools: AI writer (~$468/yr), Buffer (~$180/yr), a freelance
-            blog/SEO retainer at 2 posts/mo × $150 (~$3,600/yr), and Canva
-            (~$120/yr). Reclaimed time: ~12 hrs/mo at a conservative ~$40/hr
-            (~$5,760/yr). The email platform itself counts as $0, because the
-            brand still needs one either way. The real benefit is probably
-            higher.
+            AI writer $468, Buffer $180, blog retainer $3,600, Canva $120 per
+            year. Time: 12 hrs/mo at $40/hr.
           </p>
         </motion.div>
       </section>
@@ -503,9 +464,7 @@ export function TahoeTeasCaseStudy() {
             Doing the same work by hand?
           </h2>
           <p className="text-ink-soft text-lg max-w-[52ch] mx-auto mb-9 leading-[1.6]">
-            If you keep retyping the same idea in four places, there&apos;s
-            usually a system worth building. Doesn&apos;t matter whether you
-            sell tea or software. Tell me what&apos;s eating your week.
+            Tell me what&apos;s eating your week.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-4">
             <Link

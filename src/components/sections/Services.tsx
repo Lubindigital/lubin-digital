@@ -19,13 +19,8 @@ export function Services() {
         >
           <p className="eyebrow text-accent mb-4">What I do</p>
           <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] text-balance">
-            Three things, and I do all three myself.
+            Three things. I do all three myself.
           </h2>
-          <p className="mt-5 text-ink-soft text-lg leading-[1.6] max-w-[50ch] text-pretty">
-            Some want a website. Some want software that handles their content
-            or their admin. Local businesses need the Google listing too,
-            because that&rsquo;s what people see first.
-          </p>
         </motion.div>
 
         {/* ── Three practices, hairline-divided ──────────── */}
@@ -58,15 +53,17 @@ export function Services() {
               <div className="mt-6 h-px w-10 gradient-bg opacity-70" aria-hidden />
 
               {/* Capabilities */}
-              <ul className="mt-6 space-y-5">
+              <ul className="mt-6 space-y-3.5">
                 {pillar.items.map((item) => (
-                  <li key={item.title}>
-                    <h4 className="font-display text-[1.0625rem] text-ink leading-snug">
-                      {item.title}
-                    </h4>
-                    <p className="mt-1 text-[0.9375rem] text-ink-soft leading-[1.6] text-pretty">
-                      {item.description}
-                    </p>
+                  <li
+                    key={item}
+                    className="flex gap-3 text-[1rem] text-ink leading-snug text-pretty"
+                  >
+                    <span
+                      aria-hidden
+                      className="mt-[0.55em] h-1 w-1 shrink-0 rounded-full bg-accent"
+                    />
+                    {item}
                   </li>
                 ))}
               </ul>

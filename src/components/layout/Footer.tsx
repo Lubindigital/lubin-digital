@@ -16,8 +16,7 @@ export function Footer() {
               className="h-7 w-auto brightness-0 invert"
             />
             <p className="mt-5 text-sm leading-[1.7] text-on-ink-soft">
-              A one person studio, in every sense. I design the site, write the
-              code, and build the AI that runs behind it.
+              Websites and custom AI, built by one person.
             </p>
           </div>
 

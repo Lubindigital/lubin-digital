@@ -84,9 +84,8 @@ export function Contact() {
               Tell me what you&apos;re trying to build.
             </h2>
             <p className="mt-5 max-w-[42ch] text-lg leading-[1.65] text-on-ink-soft">
-              Send a few sentences about the project. You&apos;ll get a real
-              reply within a day, with honest thoughts on how I&apos;d approach
-              it. No sales call required.
+              A few sentences is plenty. You&apos;ll hear back from me within a
+              day. No sales call.
             </p>
 
             <div className="mt-10 border-t border-hairline-on-ink pt-8">
@@ -271,7 +270,7 @@ export function Contact() {
                 )}
                 {(status === "idle" || status === "submitting") && (
                   <span className="text-on-ink-soft/70">
-                    No spam, no pressure. A real reply within a day.
+                    No spam, no pressure.
                   </span>
                 )}
               </p>

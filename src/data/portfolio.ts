@@ -14,6 +14,8 @@ export interface PortfolioItem {
   ctaLabel?: string;
   /** Renders as the large featured row at the top. */
   featured?: boolean;
+  /** Short proof figures shown as a strip on the featured card. */
+  metrics?: { figure: string; label: string }[];
 }
 
 export const portfolioItems: PortfolioItem[] = [
@@ -21,19 +23,25 @@ export const portfolioItems: PortfolioItem[] = [
     name: "Tahoe Teas",
     category: "AI Content System · Ecommerce",
     description:
-      "One idea goes in. Out comes an email, a blog post, and an Instagram caption, each one grounded in the brand's own writing and approved by the owner before it goes live. A text gets drafted too, waiting on carrier approval.",
+      "One idea in, four channels out, in the brand's own voice.",
     image: "/portfolio/tahoe-teas.jpg",
     group: "ai",
     caseStudyPath: "/work/tahoe-teas",
     displayUrl: "tahoeteas.com",
     ctaLabel: "Read the case study",
     featured: true,
+    // Figures from the case study's ROI band (/work/tahoe-teas).
+    metrics: [
+      { figure: "4", label: "channels" },
+      { figure: "~12 hrs/mo", label: "back" },
+      { figure: "~$10k/yr", label: "saved" },
+    ],
   },
   {
     name: "Tahoe Teas Storefront",
     category: "Ecommerce · Shopify",
     description:
-      "A Shopify storefront for a family-run tea company in Tahoe City, rebuilt around their own brand and photos.",
+      "A family tea company's Shopify store, in Tahoe City.",
     image: "/portfolio/tahoe-teas-site.e395332b.png",
     group: "web",
     url: "https://tahoeteas.com",
@@ -43,7 +51,7 @@ export const portfolioItems: PortfolioItem[] = [
     name: "Kauai Maintenance",
     category: "Website & Local SEO · Contracting",
     description:
-      "A site for a licensed contractor and plumber on Kauai since 1986, built from their own job photos and reviews.",
+      "A Kauai contractor since 1986, shown through their own job photos.",
     image: "/portfolio/kauai-maintenance.385dc6e9.png",
     group: "web",
     url: "https://kauaimaintenance.com",
@@ -53,17 +61,27 @@ export const portfolioItems: PortfolioItem[] = [
     name: "My Friend Does Weddings",
     category: "Website · Wedding Planning",
     description:
-      "A site for Anthony and Lindsey, who plan and run weddings on Oʻahu, with their prices right up front.",
+      "Oʻahu wedding planners, with prices up front.",
     image: "/portfolio/myfrienddoesweddings.b0ec31ee.png",
     group: "web",
     url: "https://myfrienddoesweddings.com",
     displayUrl: "myfrienddoesweddings.com",
   },
   {
+    name: "Stellar Brews",
+    category: "Website · Café",
+    description:
+      "A Grass Valley coffee shop. Menu, hours, directions.",
+    image: "/portfolio/stellarbrewsgv.f7d4e474.png",
+    group: "web",
+    url: "https://stellarbrewsgv.com",
+    displayUrl: "stellarbrewsgv.com",
+  },
+  {
     name: "ReForm Health Alliance",
     category: "Brand & Website · Healthcare",
     description:
-      "Brand, website, and SEO for a Nevada employer coalition changing how companies buy healthcare.",
+      "Brand, site, and SEO for a Nevada healthcare coalition.",
     image: "/portfolio/reformnv.8cb372e1.png",
     group: "web",
     url: "https://reformnv.org",
@@ -73,7 +91,7 @@ export const portfolioItems: PortfolioItem[] = [
     name: "Avergent",
     category: "Website & Brand · Benefits",
     description:
-      "A marketing site and brand system for a benefits firm rebuilding what a health plan looks like.",
+      "Site and brand system for a benefits firm.",
     image: "/portfolio/avergent.906893ed.png",
     group: "web",
     url: "https://www.avergent.com",
@@ -83,7 +101,7 @@ export const portfolioItems: PortfolioItem[] = [
     name: "NVHPHP",
     category: "Landing Page · Healthcare",
     description:
-      "A launch page for Nevada's first High-Performing Health Plan initiative, with the inquiry form built right in.",
+      "Launch page for Nevada's first High-Performing Health Plan.",
     image: "/portfolio/nvhphp.62a891ad.png",
     group: "web",
     url: "https://nvhphp.health",
@@ -93,7 +111,7 @@ export const portfolioItems: PortfolioItem[] = [
     name: "Tica Lubin",
     category: "Portfolio · Personal Brand",
     description:
-      "A quiet, type-led portfolio for a designer working in sustainability. Mostly white space and good type.",
+      "A quiet, type-led portfolio for a sustainability designer.",
     image: "/portfolio/ticalubin.a886fe2d.png",
     group: "web",
     url: "https://ticalubin.com",

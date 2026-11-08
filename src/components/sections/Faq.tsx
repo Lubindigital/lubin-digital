@@ -47,8 +47,7 @@ export function Faq() {
             The questions I hear most
           </h2>
           <p className="text-ink-soft text-lg leading-[1.6] max-w-[60ch]">
-            Straight answers on timelines, cost, ownership, and how the AI part
-            actually works. Still wondering about something?{" "}
+            Something else?{" "}
             <a
               href="#contact"
               className="link-underline font-medium text-accent"

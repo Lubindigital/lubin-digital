@@ -17,12 +17,9 @@ export function ValuePropositions() {
           className="max-w-[640px]"
         >
           <p className="eyebrow text-accent mb-4">Why work with me</p>
-          <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05] mb-4">
-            A few honest reasons to hire me
+          <h2 className="font-display text-4xl md:text-5xl text-ink leading-[1.05]">
+            Three reasons to hire me
           </h2>
-          <p className="text-ink-soft text-lg leading-[1.6] max-w-[58ch]">
-            Three things I would want to know if I were the one doing the hiring.
-          </p>
         </motion.div>
 
         {/* Text-led 3-up. Hairlines do the dividing, not cards. */}
@@ -47,13 +44,9 @@ export function ValuePropositions() {
 
               <p className="eyebrow text-ink-soft mb-4">{item.kicker}</p>
 
-              <h3 className="font-display text-2xl md:text-3xl text-ink leading-[1.12] mb-4 text-balance">
+              <h3 className="font-display text-2xl md:text-3xl text-ink leading-[1.12] mb-7 text-balance">
                 {item.claim}
               </h3>
-
-              <p className="text-ink-soft leading-[1.7] mb-7 max-w-[34ch]">
-                {item.detail}
-              </p>
 
               <p className="mt-auto border-t border-hairline pt-4 text-sm text-ink-soft/80 max-w-[34ch]">
                 {item.proof}
