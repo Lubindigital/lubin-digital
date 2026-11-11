@@ -13,8 +13,8 @@ import { NextResponse, type NextRequest } from "next/server";
  *  - The platform's generated *.ivyup.io (or *.vercel.app) address serves the
  *    same pages as www: X-Robots-Tag: noindex keeps it out of search results.
  *
- * X-Seen-Host is a temporary diagnostic for the first Cloud deploy of this
- * file: it shows which host headers reach the app. Remove once confirmed.
+ * Confirmed on Cloud 2026-11-11: the edge sends Host as the machine's internal
+ * name and the original host in X-Forwarded-Host.
  */
 const CANONICAL = "www.lubindigital.com";
 const GENERATED = /\.(ivyup\.io|vercel\.app)$/i;
@@ -37,10 +37,6 @@ export function proxy(req: NextRequest) {
   if (host !== CANONICAL && GENERATED.test(host)) {
     res.headers.set("X-Robots-Tag", "noindex");
   }
-  res.headers.set(
-    "X-Seen-Host",
-    `host=${req.headers.get("host") ?? "-"} fwd=${req.headers.get("x-forwarded-host") ?? "-"}`,
-  );
   return res;
 }
 
